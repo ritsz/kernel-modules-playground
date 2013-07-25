@@ -1,9 +1,9 @@
 #! /bin/bash
 
 rm *~ 
-make -C /usr/src/linux-headers-3.2.0-36-generic/ M=/home/ritesh/Programs/Linux/Modules
+make -C /usr/src/linux-headers-3.8.2-default1 M=/home/ritesh/hacking/kernel_modules_hacking
 
-sudo rm *.o *.order *.sym* data.txt .* #*.mod.c
+sudo rm *.o *.order *.sym* data.txt *.mod.c .*.cmd
 
 sudo dmesg --clear
 
@@ -15,5 +15,5 @@ sudo rmmod $1
 
 dmesg > data.txt
 
-sublime data.txt
+subl data.txt
 

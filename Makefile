@@ -1,1 +1,1 @@
-obj-m := file_proc.o
+obj-m := kernel_thread.o

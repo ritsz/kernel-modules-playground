@@ -1,5 +1,0 @@
-##Sample Output File
-
-[ 1096.804198] file_proc: Module Loaded.
-[ 1096.818269] Unresolved Symbol thread_fn
-[ 1097.828842] file_proc: Module Unloaded.

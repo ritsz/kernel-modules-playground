@@ -1,21 +1,11 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
-
-#include <linux/kthread.h>  // for threads
 #include <linux/sched.h>  // for task_struct
-#include <linux/time.h>   // for using jiffies  
-#include <linux/timer.h>
-#include <linux/fs.h>
-#include <linux/list.h>
-#include <linux/slab.h>
 #include <asm/uaccess.h>    // copy_from_user, copy_to_user
 #include <linux/proc_fs.h> // struct proc
-#include <linux/kallsyms.h>
-#include <linux/string.h>
 #include <asm/current.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Stephen Zhang");
 MODULE_DESCRIPTION("Simple accumulator via procfs");
 
 typedef int (*function)(void);
@@ -77,16 +67,6 @@ static int __init init_simacc(void) {
     simacc_file->read_proc = simacc_read;
     simacc_file->write_proc = simacc_write;
     printk(KERN_ALERT"%s: Module Loaded.\n", __this_module.name);
-    char *sym_name = "thread_fn";
-    unsigned long sym_addr = kallsyms_lookup_name(sym_name);
-    // int* rday_3 = sym_addr;
-    // printk("%d, %lu\n", *rday_3, sym_addr);
-    if (sym_addr) {
-        function ca = (function)sym_addr;
-        ca();
-    } else {
-        printk(KERN_ERR"Unresolved Symbol %s", sym_name);
-    }
 
     return 0;
 }
