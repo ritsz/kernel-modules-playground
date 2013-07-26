@@ -1,7 +1,2 @@
-[  147.425648] Hello World!
-[  147.425652] to= 11 from= 20
-[  147.425654] to= 12 from= 40
-[  147.425655] to= 13 from= 60
-[  147.425657] to= 14 from= 80
-[  147.425659] to= 15 from= 100
-[  148.437628] Good bye!
+[  569.161977] file_proc: Module Loaded.
+[  570.205489] file_proc: Module Unloaded.

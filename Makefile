@@ -1,1 +1,1 @@
-obj-m := process_tree.o
+obj-m := file_proc.o
