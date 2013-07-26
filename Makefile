@@ -1,1 +1,1 @@
-obj-m := load_time_config.o
+obj-m := process_tree.o

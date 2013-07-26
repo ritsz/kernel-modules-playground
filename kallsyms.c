@@ -2,6 +2,8 @@
 #include <linux/kernel.h>
 #include <linux/kallsyms.h>
 
+typedef int (*function)(void);
+
 static int __init init_kallsyms(void) {
 	char *sym_name = "thread_fn";
     	unsigned long sym_addr = kallsyms_lookup_name(sym_name);
@@ -18,8 +20,7 @@ static int __init init_kallsyms(void) {
 
 static void __exit cleanup_kallsyms(void)
 {
-    remove_proc_entry("simacc", NULL);
-    printk(KERN_INFO "%s: Module Unloaded.\n", THIS_MODULE->name);
+   printk(KERN_INFO "%s: Module Unloaded.\n", THIS_MODULE->name);
 }
 
 MODULE_LICENSE("GPL");

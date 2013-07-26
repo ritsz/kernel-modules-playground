@@ -1,10 +1,7 @@
-[  291.691004] 1. Name is : ritsz
-[  292.885483] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
-[  292.887764] sd 6:0:0:0: [sdb] Asking for cache data failed
-[  292.887771] sd 6:0:0:0: [sdb] Assuming drive cache: write through
-[  344.601024] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
-[  344.603261] sd 6:0:0:0: [sdb] Asking for cache data failed
-[  344.603269] sd 6:0:0:0: [sdb] Assuming drive cache: write through
-[  387.265597] 2. Name is : ritesh
-[  387.265599] 
-[  387.265603] Unloading load_time_config module
+[  147.425648] Hello World!
+[  147.425652] to= 11 from= 20
+[  147.425654] to= 12 from= 40
+[  147.425655] to= 13 from= 60
+[  147.425657] to= 14 from= 80
+[  147.425659] to= 15 from= 100
+[  148.437628] Good bye!

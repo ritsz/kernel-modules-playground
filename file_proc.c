@@ -8,7 +8,6 @@
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Simple accumulator via procfs");
 
-typedef int (*function)(void);
 
 #define MAX_INPUT_SIZE 1024
 char input_buf[MAX_INPUT_SIZE];

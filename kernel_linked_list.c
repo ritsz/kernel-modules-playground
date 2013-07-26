@@ -20,11 +20,9 @@ struct kool_list {
 };
 struct kool_list mylist;
 
-static int hello_init (void) {
-	static struct task_struct *thread1;
-	char our_thread[8]="thread1";
-	
-	printk("Hello World!\n");
+static int hello_init (void) 
+{
+	printk(KERN_DEBUG"Hello World!\n");
 
 	struct kool_list *tmp;
 	struct list_head *pos, *q;
@@ -48,7 +46,7 @@ static int hello_init (void) {
 	
 	// Extended form of the macro "container_of" and "List_Entry"
 		tmp= ({ const typeof( ((struct kool_list *)0)->list ) *__mptr = (pos); (struct kool_list *)( (char *)__mptr - offsetof(struct kool_list,list) );});
-		printk("to= %d from= %d\n", tmp->to, tmp->from);
+		printk(KERN_DEBUG"to= %d from= %d\n", tmp->to, tmp->from);
 	}
 
 	return 0;
@@ -56,7 +54,7 @@ static int hello_init (void) {
 
 static void hello_exit(void)
 {
-	printk("Good bye!\n");
+	printk(KERN_DEBUG"Good bye!\n");
 	list_del(&mylist.list);	
 }
 
