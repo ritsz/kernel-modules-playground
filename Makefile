@@ -1,1 +1,1 @@
-obj-m := kernel_thread.o
+obj-m := load_time_config.o
