@@ -22,7 +22,7 @@ struct kool_list mylist;
 
 static int hello_init (void) 
 {
-	printk(KERN_DEBUG"Hello World!\n");
+	printk(KERN_INFO "Hello World!\n");
 
 	struct kool_list *tmp;
 	struct list_head *pos, *q;
@@ -46,7 +46,7 @@ static int hello_init (void)
 	
 	// Extended form of the macro "container_of" and "List_Entry"
 		tmp= ({ const typeof( ((struct kool_list *)0)->list ) *__mptr = (pos); (struct kool_list *)( (char *)__mptr - offsetof(struct kool_list,list) );});
-		printk(KERN_DEBUG"to= %d from= %d\n", tmp->to, tmp->from);
+		printk(KERN_INFO "to= %d from= %d\n", tmp->to, tmp->from);
 	}
 
 	return 0;
@@ -54,7 +54,7 @@ static int hello_init (void)
 
 static void hello_exit(void)
 {
-	printk(KERN_DEBUG"Good bye!\n");
+	printk(KERN_INFO "Good bye!\n");
 	list_del(&mylist.list);	
 }
 
