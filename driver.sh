@@ -1,7 +1,7 @@
 #! /bin/bash
 
 rm *~ 
-make -C /usr/src/linux-headers-3.8.2-default1 M=/home/ritesh/hacking/kernel_modules_hacking/
+make -C /usr/src/linux-headers-3.8.0-29-generic M=~/kernel_modules_hacking/
 sudo rm *.o *.order *.sym* data.txt *.mod.c .*.cmd
 
 sudo dmesg --clear
