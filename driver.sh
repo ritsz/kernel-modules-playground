@@ -1,18 +1,56 @@
 #! /bin/bash
 
-rm *~ 
-make -C /usr/src/linux-headers-3.8.0-29-generic M=~/kernel_modules_hacking/
-sudo rm *.o *.order *.sym* data.txt *.mod.c .*.cmd
+# Comparing the extension to find out the type of file given 
+# "*.c", "*.o" and <module_name>
 
-sudo dmesg --clear
+stringZ=$1
+size=${#stringZ}
+extension=${stringZ:$size-2:$size-1}		#saves the extension of the file
 
-sudo insmod ./$1.ko
+if [[ $extension = ".c" ]]; then
 
-sleep 1
+	file=${stringZ:0:$size-2}.o
+	module=${stringZ:0:$size-2}.ko
 
-sudo rmmod $1
+elif [[ $extension = ".o" ]]; then
 
-dmesg > data.txt
+	file=$1
+	module=${stringZ:0:$size-2}.ko
 
-subl data.txt
+else
+
+	file=$1.o
+	module=$1.ko
+
+fi
+
+echo "**********************************************************************************
+			BUILDING $file MODULE
+**********************************************************************************
+"
+rm -rf *~ 
+
+make default obj-m=$file
+
+if [[ $? -eq 0 ]]; then
+	
+	#If make succedded. 
+	sudo dmesg --clear
+	sudo insmod ./$module
+	sleep 1
+	sudo rmmod $module
+	dmesg > data.txt
+	subl data.txt 
+
+	make --quiet clean
+
+else
+	echo "
+		ERROR	:	Make of $file did not succed. Exiting
+		"
+	exit
+fi
+
+	
+
 

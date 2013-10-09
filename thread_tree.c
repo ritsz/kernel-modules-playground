@@ -38,13 +38,14 @@ int __init hello_init(void)
 	#endif
 
 
-	//	This method prints data about init_task as well, since it's a do-while loop :P
+	//	This method prints data about init_task as well, since it's a do-while loop
 
 	task = &init_task;
 	do {
 		printk("Process %d : %s has %d threads\n", task->pid, task->comm, get_nr_threads(task));
-		printk("%lu time, %llu wait, %llu last run and %llu last queued\n\n", task->sched_info.pcount, task->sched_info.run_delay,
+		printk("%lu time, %llu wait, %llu last run and %llu last queued\n", task->sched_info.pcount, task->sched_info.run_delay,
 	 			task->sched_info.last_arrival, task->sched_info.last_queued);
+		printk("%lu\n\n",task->rt.timeout);
 		task = next_task(task);
 	} while (task != &init_task);
 
