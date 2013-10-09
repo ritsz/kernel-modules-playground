@@ -30,23 +30,35 @@ echo "**************************************************************************
 "
 rm -rf *~ 
 
-make default obj-m=$file
+make --quiet default obj-m=$file
 
 if [[ $? -eq 0 ]]; then
 	
 	#If make succedded. 
+	timestamp="<$(($(date +%N)/1000000))>"
+	echo "$timestamp : Make $file was successful"
 	sudo dmesg --clear
+
+	timestamp="<$(($(date +%N)/1000000))>"
+	echo "$timestamp : Loading $file"
 	sudo insmod ./$module
 	sleep 1
+
+	timestamp="<$(($(date +%N)/1000000))>"
+	echo "$timestamp : Removing $file"
 	sudo rmmod $module
+	
 	dmesg > data.txt
 	subl data.txt 
 
+	timestamp="<$(($(date +%N)/1000000))>"
+	echo "$timestamp : Cleanup"
 	make --quiet clean
 
 else
+	timestamp="<$(($(date +%N)/1000000))>"
 	echo "
-		ERROR	:	Make of $file did not succed. Exiting
+	$timestamp : ERROR	:	Make of $file did not succed. Exiting
 		"
 	exit
 fi
