@@ -2,14 +2,25 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/sched.h>  // for task_struct
+#include <linux/kthread.h>  // for threads
+#include <asm/current.h>
 
 MODULE_LICENSE("Dual BSD/GPL");
 
+void my_kernel_fn() 
+{
+	// When the kernel thread runs, current refers to kritsz
+	printk("WE ARE RUNNING A KERNEL THREAD %s\n\n", current->comm);
+}
+
 int __init hello_init(void)
 {
-	struct task_struct *task, *g, *t;
+	struct task_struct *task, *t;
 	printk("ENTERING THREAD TREE MODULE\n");	
 	
+	//Lets create a new kernel thread called kritsz
+	t = kthread_create(my_kernel_fn, NULL, "kritsz");
+
 
 	// 	Printing process data using for_each_process requires printing init_task separately
 
@@ -42,12 +53,42 @@ int __init hello_init(void)
 
 	task = &init_task;
 	do {
+		// A check to see whether void *stack points to the thread_info structure or not.
+		struct thread_info * ti = (struct thread_info*)(task->stack);
+		struct task_struct * _task = ti->task; 
+		printk("Check :: %d, %s\n", _task->pid, _task->comm);
+
 		printk("Process %d : %s has %d threads\n", task->pid, task->comm, get_nr_threads(task));
 		printk("%lu time, %llu wait, %llu last run and %llu last queued\n", task->sched_info.pcount, task->sched_info.run_delay,
 	 			task->sched_info.last_arrival, task->sched_info.last_queued);
-		printk("%lu\n\n",task->rt.timeout);
+		printk("%lu\n",task->rt.timeout);
+
+
+		// A kernel thread has no address space.
+		if (task->mm == NULL) {
+			printk("KERNEL THREAD\n\n");
+		}
+		else {
+			printk("USER THREAD\n\n");
+		}
+		
+
+		// If task is kthreadadd, traverse all children to find out all the kernel threads.
+
+		if (task->pid == 2) {
+			struct task_struct *child_task;
+			// Iterate task->children list of 'kthreadadd', where elements are related as siblings
+			list_for_each_entry(child_task, &(task->children), sibling) {
+				printk("\t\t %d 	:	%s\n",child_task->pid, child_task->comm);
+			}
+		}
+
 		task = next_task(task);
 	} while (task != &init_task);
+
+
+	// Lets wake up the kritsz kernel thread
+	wake_up_process(t);
 
 	return 0;
 }

@@ -1,614 +1,606 @@
-[ 9585.258930] ENTERING THREAD TREE MODULE
-[ 9585.258953] Process 0 : swapper/0 has 1 threads
-[ 9585.258973] 0 time, 0 wait, 0 last run and 0 last queued
-[ 9585.258984] 0
-[ 9585.258984] 
-[ 9585.258994] Process 1 : init has 1 threads
-[ 9585.258997] 4732 time, 1255448535 wait, 9585258405319 last run and 0 last queued
-[ 9585.258998] 0
-[ 9585.258998] 
-[ 9585.259000] Process 2 : kthreadd has 1 threads
-[ 9585.259001] 121 time, 1418622 wait, 9319896037130 last run and 0 last queued
-[ 9585.259002] 0
-[ 9585.259002] 
-[ 9585.259004] Process 3 : ksoftirqd/0 has 1 threads
-[ 9585.259005] 96102 time, 603535338 wait, 9585238376021 last run and 0 last queued
-[ 9585.259006] 0
-[ 9585.259006] 
-[ 9585.259009] Process 5 : kworker/0:0H has 1 threads
-[ 9585.259010] 4 time, 202751 wait, 444501401673 last run and 0 last queued
-[ 9585.259011] 0
-[ 9585.259011] 
-[ 9585.259013] Process 7 : kworker/u:0H has 1 threads
-[ 9585.259014] 39 time, 2334530 wait, 4730337895 last run and 0 last queued
-[ 9585.259015] 0
-[ 9585.259015] 
-[ 9585.259017] Process 8 : migration/0 has 1 threads
-[ 9585.259018] 167 time, 3753 wait, 9531154967740 last run and 0 last queued
-[ 9585.259019] 0
-[ 9585.259019] 
-[ 9585.259021] Process 9 : rcu_bh has 1 threads
-[ 9585.259023] 2 time, 141022 wait, 330476916 last run and 0 last queued
-[ 9585.259024] 0
-[ 9585.259024] 
-[ 9585.259025] Process 10 : rcu_sched has 1 threads
-[ 9585.259027] 252159 time, 18360686746 wait, 9585258399439 last run and 0 last queued
-[ 9585.259028] 0
-[ 9585.259028] 
-[ 9585.259030] Process 11 : watchdog/0 has 1 threads
-[ 9585.259031] 2403 time, 8399816 wait, 9582327491190 last run and 0 last queued
-[ 9585.259032] 0
-[ 9585.259032] 
-[ 9585.259034] Process 12 : cpuset has 1 threads
-[ 9585.259035] 2 time, 125568 wait, 340979306 last run and 0 last queued
-[ 9585.259036] 0
-[ 9585.259036] 
-[ 9585.259038] Process 13 : khelper has 1 threads
-[ 9585.259039] 2 time, 1846256 wait, 342814363 last run and 0 last queued
-[ 9585.259040] 0
-[ 9585.259040] 
-[ 9585.259042] Process 14 : kdevtmpfs has 1 threads
-[ 9585.259043] 214 time, 343317 wait, 18203131624 last run and 0 last queued
-[ 9585.259044] 0
-[ 9585.259044] 
-[ 9585.259045] Process 15 : netns has 1 threads
-[ 9585.259047] 2 time, 3164304 wait, 353542683 last run and 0 last queued
-[ 9585.259048] 0
-[ 9585.259048] 
-[ 9585.259049] Process 16 : bdi-default has 1 threads
-[ 9585.259051] 48 time, 804443347 wait, 9326955092902 last run and 0 last queued
-[ 9585.259052] 0
-[ 9585.259052] 
-[ 9585.259054] Process 17 : kintegrityd has 1 threads
-[ 9585.259055] 2 time, 1215883 wait, 367927068 last run and 0 last queued
-[ 9585.259056] 0
-[ 9585.259056] 
-[ 9585.259058] Process 18 : kblockd has 1 threads
-[ 9585.259060] 4 time, 5505899 wait, 444497809486 last run and 0 last queued
-[ 9585.259061] 0
-[ 9585.259061] 
-[ 9585.259063] Process 19 : ata_sff has 1 threads
-[ 9585.259065] 4 time, 947778 wait, 1206356382800 last run and 0 last queued
-[ 9585.259066] 0
-[ 9585.259066] 
-[ 9585.259068] Process 20 : khubd has 1 threads
-[ 9585.259069] 136 time, 15358376 wait, 1843054598809 last run and 0 last queued
-[ 9585.259070] 0
-[ 9585.259070] 
-[ 9585.259072] Process 21 : md has 1 threads
-[ 9585.259074] 2 time, 515345 wait, 530050160 last run and 0 last queued
-[ 9585.259075] 0
-[ 9585.259075] 
-[ 9585.259077] Process 22 : devfreq_wq has 1 threads
-[ 9585.259078] 2 time, 3266808 wait, 533319576 last run and 0 last queued
-[ 9585.259079] 0
-[ 9585.259079] 
-[ 9585.259081] Process 25 : khungtaskd has 1 threads
-[ 9585.259082] 82 time, 1641940 wait, 9583194017300 last run and 0 last queued
-[ 9585.259083] 0
-[ 9585.259083] 
-[ 9585.259084] Process 26 : kswapd0 has 1 threads
-[ 9585.259086] 3 time, 1270568 wait, 1323594434 last run and 0 last queued
-[ 9585.259087] 0
-[ 9585.259087] 
-[ 9585.259088] Process 27 : ksmd has 1 threads
-[ 9585.259090] 2 time, 2594888 wait, 1213476947 last run and 0 last queued
-[ 9585.259090] 0
-[ 9585.259090] 
-[ 9585.259092] Process 28 : khugepaged has 1 threads
-[ 9585.259093] 3 time, 4403468 wait, 1217918930 last run and 0 last queued
-[ 9585.259094] 0
-[ 9585.259094] 
-[ 9585.259106] Process 29 : fsnotify_mark has 1 threads
-[ 9585.259107] 718 time, 4919474 wait, 9527243897889 last run and 0 last queued
-[ 9585.259108] 0
-[ 9585.259108] 
-[ 9585.259110] Process 30 : ecryptfs-kthrea has 1 threads
-[ 9585.259112] 2 time, 528227 wait, 1218337436 last run and 0 last queued
-[ 9585.259113] 0
-[ 9585.259113] 
-[ 9585.259115] Process 31 : crypto has 1 threads
-[ 9585.259116] 2 time, 262603 wait, 1220005093 last run and 0 last queued
-[ 9585.259117] 0
-[ 9585.259117] 
-[ 9585.259119] Process 42 : kthrotld has 1 threads
-[ 9585.259120] 2 time, 7074827 wait, 1228582138 last run and 0 last queued
-[ 9585.259121] 0
-[ 9585.259121] 
-[ 9585.259123] Process 43 : kworker/u:1 has 1 threads
-[ 9585.259124] 21 time, 70444186 wait, 2394084847 last run and 0 last queued
-[ 9585.259125] 0
-[ 9585.259125] 
-[ 9585.259127] Process 44 : scsi_eh_0 has 1 threads
-[ 9585.259128] 4 time, 39808730 wait, 1674815308 last run and 0 last queued
-[ 9585.259129] 0
-[ 9585.259129] 
-[ 9585.259131] Process 45 : scsi_eh_1 has 1 threads
-[ 9585.259132] 26 time, 52284605 wait, 4027202288 last run and 0 last queued
-[ 9585.259133] 0
-[ 9585.259133] 
-[ 9585.259135] Process 46 : kworker/u:2 has 1 threads
-[ 9585.259137] 9669 time, 4898934823 wait, 9584746905051 last run and 0 last queued
-[ 9585.259138] 0
-[ 9585.259138] 
-[ 9585.259139] Process 48 : binder has 1 threads
-[ 9585.259140] 2 time, 1266515 wait, 1607364026 last run and 0 last queued
-[ 9585.259141] 0
-[ 9585.259141] 
-[ 9585.259143] Process 68 : deferwq has 1 threads
-[ 9585.259144] 2 time, 332796 wait, 1735392206 last run and 0 last queued
-[ 9585.259145] 0
-[ 9585.259145] 
-[ 9585.259147] Process 69 : charger_manager has 1 threads
-[ 9585.259148] 2 time, 195341 wait, 1735588464 last run and 0 last queued
-[ 9585.259149] 0
-[ 9585.259149] 
-[ 9585.259151] Process 214 : mpt_poll_0 has 1 threads
-[ 9585.259152] 2 time, 3612951 wait, 2036285572 last run and 0 last queued
-[ 9585.259153] 0
-[ 9585.259153] 
-[ 9585.259155] Process 215 : mpt/0 has 1 threads
-[ 9585.259156] 2 time, 3511292 wait, 2040108365 last run and 0 last queued
-[ 9585.259157] 0
-[ 9585.259157] 
-[ 9585.259159] Process 226 : scsi_eh_2 has 1 threads
-[ 9585.259160] 2 time, 346514 wait, 2271389224 last run and 0 last queued
-[ 9585.259161] 0
-[ 9585.259161] 
-[ 9585.259163] Process 244 : jbd2/sda1-8 has 1 threads
-[ 9585.259164] 9875 time, 1261732719 wait, 9584441922697 last run and 0 last queued
-[ 9585.259165] 0
-[ 9585.259165] 
-[ 9585.259167] Process 245 : ext4-dio-unwrit has 1 threads
-[ 9585.259168] 2 time, 1590258 wait, 2442291387 last run and 0 last queued
-[ 9585.259169] 0
-[ 9585.259169] 
-[ 9585.259170] Process 366 : upstart-udev-br has 1 threads
-[ 9585.259172] 1946 time, 146906389 wait, 9585258666549 last run and 0 last queued
-[ 9585.259173] 0
-[ 9585.259173] 
-[ 9585.259174] Process 369 : udevd has 1 threads
-[ 9585.259175] 952 time, 6730912485 wait, 9585258170021 last run and 0 last queued
-[ 9585.259176] 0
-[ 9585.259176] 
-[ 9585.259178] Process 438 : rsyslogd has 4 threads
-[ 9585.259179] 399 time, 56297127 wait, 9575861373039 last run and 0 last queued
-[ 9585.259180] 0
-[ 9585.259180] 
-[ 9585.259182] Process 457 : dbus-daemon has 1 threads
-[ 9585.259183] 74059 time, 14474392612 wait, 9582909539942 last run and 0 last queued
-[ 9585.259184] 0
-[ 9585.259184] 
-[ 9585.259186] Process 473 : bluetoothd has 1 threads
-[ 9585.259187] 366 time, 17831964 wait, 1854448797185 last run and 0 last queued
-[ 9585.259188] 0
-[ 9585.259188] 
-[ 9585.259189] Process 488 : avahi-daemon has 1 threads
-[ 9585.259191] 4316 time, 8596107790 wait, 9582909479644 last run and 0 last queued
-[ 9585.259192] 0
-[ 9585.259192] 
-[ 9585.259194] Process 489 : avahi-daemon has 1 threads
-[ 9585.259195] 3 time, 774998 wait, 3401980943 last run and 0 last queued
-[ 9585.259196] 0
-[ 9585.259196] 
-[ 9585.259197] Process 504 : krfcommd has 1 threads
-[ 9585.259199] 3 time, 3174794 wait, 3445575140 last run and 0 last queued
-[ 9585.259200] 0
-[ 9585.259200] 
-[ 9585.259201] Process 527 : cupsd has 1 threads
-[ 9585.259203] 7185 time, 8834673061 wait, 9583907993684 last run and 0 last queued
-[ 9585.259204] 0
-[ 9585.259204] 
-[ 9585.259205] Process 552 : ttm_swap has 1 threads
-[ 9585.259207] 2 time, 6563091 wait, 3586869022 last run and 0 last queued
-[ 9585.259208] 0
-[ 9585.259208] 
-[ 9585.259209] Process 585 : colord has 3 threads
-[ 9585.259210] 839 time, 3028498378 wait, 8793535273272 last run and 0 last queued
-[ 9585.259211] 0
-[ 9585.259211] 
-[ 9585.259213] Process 634 : hci0 has 1 threads
-[ 9585.259215] 2 time, 16879765 wait, 3967395755 last run and 0 last queued
-[ 9585.259216] 0
-[ 9585.259216] 
-[ 9585.259218] Process 638 : kworker/u:1H has 1 threads
-[ 9585.259219] 44 time, 4898015 wait, 1854445761409 last run and 0 last queued
-[ 9585.259220] 0
-[ 9585.259220] 
-[ 9585.259222] Process 677 : kpsmoused has 1 threads
-[ 9585.259223] 2 time, 3393890 wait, 4298932305 last run and 0 last queued
-[ 9585.259224] 0
-[ 9585.259224] 
-[ 9585.259226] Process 748 : tpvmlp has 1 threads
-[ 9585.259227] 1275 time, 47654665 wait, 9583725586259 last run and 0 last queued
-[ 9585.259228] 0
-[ 9585.259228] 
-[ 9585.259230] Process 787 : upstart-socket- has 1 threads
-[ 9585.259231] 241 time, 17393150 wait, 3593283813734 last run and 0 last queued
-[ 9585.259232] 0
-[ 9585.259232] 
-[ 9585.259234] Process 818 : modem-manager has 1 threads
-[ 9585.259235] 4479 time, 186953582 wait, 9582909362975 last run and 0 last queued
-[ 9585.259236] 0
-[ 9585.259236] 
-[ 9585.259238] Process 832 : NetworkManager has 3 threads
-[ 9585.259239] 5780 time, 9863973296 wait, 9582909257491 last run and 0 last queued
-[ 9585.259240] 0
-[ 9585.259240] 
-[ 9585.259242] Process 842 : polkitd has 2 threads
-[ 9585.259243] 9493 time, 2753309556 wait, 9582909222746 last run and 0 last queued
-[ 9585.259244] 0
-[ 9585.259244] 
-[ 9585.259246] Process 956 : getty has 1 threads
-[ 9585.259247] 8 time, 5070700 wait, 5900333666 last run and 0 last queued
-[ 9585.259248] 0
-[ 9585.259248] 
-[ 9585.259250] Process 964 : getty has 1 threads
-[ 9585.259251] 5 time, 1765670 wait, 5929149140 last run and 0 last queued
-[ 9585.259252] 0
-[ 9585.259252] 
-[ 9585.259254] Process 980 : getty has 1 threads
-[ 9585.259255] 4 time, 1668174 wait, 5992060542 last run and 0 last queued
-[ 9585.259256] 0
-[ 9585.259256] 
-[ 9585.259257] Process 981 : getty has 1 threads
-[ 9585.259259] 5 time, 5779817 wait, 6009088802 last run and 0 last queued
-[ 9585.259260] 0
-[ 9585.259260] 
-[ 9585.259261] Process 988 : getty has 1 threads
-[ 9585.259263] 4 time, 1586078 wait, 6029420553 last run and 0 last queued
-[ 9585.259263] 0
-[ 9585.259263] 
-[ 9585.259265] Process 1012 : acpid has 1 threads
-[ 9585.259267] 47 time, 33937592 wait, 1228240594254 last run and 0 last queued
-[ 9585.259268] 0
-[ 9585.259268] 
-[ 9585.259269] Process 1014 : cron has 1 threads
-[ 9585.259270] 171 time, 8819490 wait, 9531216641250 last run and 0 last queued
-[ 9585.259271] 0
-[ 9585.259271] 
-[ 9585.259273] Process 1017 : atd has 1 threads
-[ 9585.259274] 5 time, 287682 wait, 7192539031700 last run and 0 last queued
-[ 9585.259275] 0
-[ 9585.259275] 
-[ 9585.259277] Process 1021 : lightdm has 3 threads
-[ 9585.259279] 571 time, 142630280 wait, 1246325724732 last run and 0 last queued
-[ 9585.259279] 0
-[ 9585.259279] 
-[ 9585.259281] Process 1023 : whoopsie has 2 threads
-[ 9585.259282] 289 time, 3593653558 wait, 7710812989998 last run and 0 last queued
-[ 9585.259283] 0
-[ 9585.259283] 
-[ 9585.259285] Process 1097 : flush-8:0 has 1 threads
-[ 9585.259287] 1891 time, 979591410 wait, 9585166133875 last run and 0 last queued
-[ 9585.259288] 0
-[ 9585.259288] 
-[ 9585.259289] Process 1236 : accounts-daemon has 2 threads
-[ 9585.259291] 6974 time, 2148430001 wait, 9582908923965 last run and 0 last queued
-[ 9585.259292] 0
-[ 9585.259292] 
-[ 9585.259293] Process 1256 : getty has 1 threads
-[ 9585.259295] 5 time, 2340929 wait, 10818845511 last run and 0 last queued
-[ 9585.259296] 0
-[ 9585.259296] 
-[ 9585.259298] Process 1268 : console-kit-dae has 65 threads
-[ 9585.259299] 6118 time, 451632515 wait, 9582908837321 last run and 0 last queued
-[ 9585.259300] 0
-[ 9585.259300] 
-[ 9585.259302] Process 1347 : dnsmasq has 1 threads
-[ 9585.259304] 1633 time, 4302086591 wait, 9532094379697 last run and 0 last queued
-[ 9585.259305] 0
-[ 9585.259305] 
-[ 9585.259308] Process 1578 : upowerd has 3 threads
-[ 9585.259309] 4233 time, 207303569 wait, 9582908701563 last run and 0 last queued
-[ 9585.259310] 0
-[ 9585.259310] 
-[ 9585.259312] Process 1918 : vmware-vmblock- has 3 threads
-[ 9585.259313] 1 time, 12712696 wait, 19414375186 last run and 0 last queued
-[ 9585.259315] 0
-[ 9585.259315] 
-[ 9585.259316] Process 1981 : vmtoolsd has 2 threads
-[ 9585.259318] 99911 time, 7656441036 wait, 9585206275867 last run and 0 last queued
-[ 9585.259319] 0
-[ 9585.259319] 
-[ 9585.259321] Process 2010 : rtkit-daemon has 3 threads
-[ 9585.259322] 137 time, 211807616 wait, 1230773718815 last run and 0 last queued
-[ 9585.259323] 1
-[ 9585.259323] 
-[ 9585.259325] Process 2196 : pulseaudio has 3 threads
-[ 9585.259326] 1292 time, 238987805 wait, 4619672222343 last run and 0 last queued
-[ 9585.259328] 0
-[ 9585.259328] 
-[ 9585.259329] Process 2199 : gconf-helper has 1 threads
-[ 9585.259331] 26 time, 15107441 wait, 334218768157 last run and 0 last queued
-[ 9585.259332] 0
-[ 9585.259332] 
-[ 9585.259334] Process 2229 : udisks-daemon has 2 threads
-[ 9585.259335] 4181 time, 130595761 wait, 9582908621375 last run and 0 last queued
-[ 9585.259336] 0
-[ 9585.259336] 
-[ 9585.259338] Process 2231 : udisks-daemon has 1 threads
-[ 9585.259340] 3 time, 4828517 wait, 30514824653 last run and 0 last queued
-[ 9585.259340] 0
-[ 9585.259340] 
-[ 9585.259342] Process 2568 : system-service- has 1 threads
-[ 9585.259343] 136 time, 32625249 wait, 1306035382124 last run and 0 last queued
-[ 9585.259344] 0
-[ 9585.259344] 
-[ 9585.259346] Process 2579 : aptd has 2 threads
-[ 9585.259347] 11017 time, 54047215215 wait, 9582907235692 last run and 0 last queued
-[ 9585.259348] 0
-[ 9585.259348] 
-[ 9585.259350] Process 3280 : udevd has 1 threads
-[ 9585.259352] 132 time, 4711953 wait, 9585257912905 last run and 0 last queued
-[ 9585.259353] 0
-[ 9585.259353] 
-[ 9585.259354] Process 3926 : kworker/0:1H has 1 threads
-[ 9585.259356] 58 time, 8179547 wait, 9520284902330 last run and 0 last queued
-[ 9585.259357] 0
-[ 9585.259357] 
-[ 9585.259359] Process 4175 : update-apt-xapi has 1 threads
-[ 9585.259360] 306 time, 385734705 wait, 601857123504 last run and 0 last queued
-[ 9585.259361] 0
-[ 9585.259361] 
-[ 9585.259363] Process 4596 : aptd has 1 threads
-[ 9585.259365] 6692 time, 1540250709 wait, 9584100092641 last run and 0 last queued
-[ 9585.259366] 0
-[ 9585.259366] 
-[ 9585.259369] Process 6542 : Xorg has 1 threads
-[ 9585.259371] 1096768 time, 264098924115 wait, 9585242009106 last run and 0 last queued
-[ 9585.259372] 0
-[ 9585.259372] 
-[ 9585.259374] Process 6623 : lightdm has 2 threads
-[ 9585.259376] 77 time, 17581421 wait, 1242053974861 last run and 0 last queued
-[ 9585.259377] 0
-[ 9585.259377] 
-[ 9585.259378] Process 6704 : gnome-keyring-d has 6 threads
-[ 9585.259379] 412 time, 107390076 wait, 9553281653075 last run and 0 last queued
-[ 9585.259380] 0
-[ 9585.259380] 
-[ 9585.259382] Process 6715 : gnome-session has 4 threads
-[ 9585.259384] 6487 time, 4908265398 wait, 9582914593440 last run and 0 last queued
-[ 9585.259385] 0
-[ 9585.259385] 
-[ 9585.259387] Process 6748 : ssh-agent has 1 threads
-[ 9585.259388] 836 time, 2583518602 wait, 9585074290024 last run and 0 last queued
-[ 9585.259389] 0
-[ 9585.259389] 
-[ 9585.259391] Process 6751 : dbus-launch has 1 threads
-[ 9585.259392] 9 time, 2884821 wait, 1242205217802 last run and 0 last queued
-[ 9585.259393] 0
-[ 9585.259393] 
-[ 9585.259395] Process 6752 : dbus-daemon has 1 threads
-[ 9585.259397] 46677 time, 3584018299 wait, 9584893830548 last run and 0 last queued
-[ 9585.259399] 0
-[ 9585.259399] 
-[ 9585.259401] Process 6765 : gnome-settings- has 3 threads
-[ 9585.259402] 47722 time, 10379606293 wait, 9583898032657 last run and 0 last queued
-[ 9585.259403] 0
-[ 9585.259403] 
-[ 9585.259405] Process 6772 : gvfsd has 1 threads
-[ 9585.259407] 462 time, 135042719 wait, 9553282712990 last run and 0 last queued
-[ 9585.259408] 0
-[ 9585.259408] 
-[ 9585.259409] Process 6774 : gvfs-fuse-daemo has 4 threads
-[ 9585.259411] 4 time, 10437683 wait, 1242636006791 last run and 0 last queued
-[ 9585.259412] 0
-[ 9585.259412] 
-[ 9585.259419] Process 6782 : gsd-printer has 2 threads
-[ 9585.259421] 42 time, 85070944 wait, 2280157899801 last run and 0 last queued
-[ 9585.259422] 0
-[ 9585.259422] 
-[ 9585.259424] Process 6783 : metacity has 3 threads
-[ 9585.259426] 121251 time, 10174755233 wait, 9583358743703 last run and 0 last queued
-[ 9585.259427] 0
-[ 9585.259427] 
-[ 9585.259429] Process 6788 : gconfd-2 has 1 threads
-[ 9585.259430] 517 time, 86669548 wait, 9567933357849 last run and 0 last queued
-[ 9585.259431] 0
-[ 9585.259431] 
-[ 9585.259433] Process 6794 : gnome-panel has 3 threads
-[ 9585.259434] 121467 time, 18599464793 wait, 9583897965966 last run and 0 last queued
-[ 9585.259436] 0
-[ 9585.259436] 
-[ 9585.259438] Process 6798 : dconf-service has 3 threads
-[ 9585.259439] 268 time, 37495597 wait, 7903347854982 last run and 0 last queued
-[ 9585.259440] 0
-[ 9585.259440] 
-[ 9585.259441] Process 6803 : polkit-gnome-au has 2 threads
-[ 9585.259443] 2620 time, 954331996 wait, 9582914330337 last run and 0 last queued
-[ 9585.259444] 0
-[ 9585.259444] 
-[ 9585.259446] Process 6804 : nm-applet has 2 threads
-[ 9585.259448] 6663 time, 8182594816 wait, 9582914681859 last run and 0 last queued
-[ 9585.259448] 0
-[ 9585.259448] 
-[ 9585.259450] Process 6805 : nautilus has 3 threads
-[ 9585.259452] 11239 time, 6727595862 wait, 9582914418370 last run and 0 last queued
-[ 9585.259453] 0
-[ 9585.259453] 
-[ 9585.259455] Process 6806 : gnome-fallback- has 3 threads
-[ 9585.259456] 2609 time, 1032537797 wait, 9582914367578 last run and 0 last queued
-[ 9585.259457] 0
-[ 9585.259457] 
-[ 9585.259459] Process 6808 : bluetooth-apple has 3 threads
-[ 9585.259461] 6164 time, 5704376999 wait, 9582914638431 last run and 0 last queued
-[ 9585.259461] 0
-[ 9585.259461] 
-[ 9585.259463] Process 6809 : vmtoolsd has 1 threads
-[ 9585.259465] 94498 time, 10290396893 wait, 9585189435497 last run and 0 last queued
-[ 9585.259466] 0
-[ 9585.259466] 
-[ 9585.259467] Process 6822 : gvfs-gdu-volume has 1 threads
-[ 9585.259469] 92 time, 39478654 wait, 7903425148007 last run and 0 last queued
-[ 9585.259470] 0
-[ 9585.259470] 
-[ 9585.259471] Process 6827 : gvfs-gphoto2-vo has 1 threads
-[ 9585.259473] 34 time, 15225546 wait, 7903425226444 last run and 0 last queued
-[ 9585.259474] 0
-[ 9585.259474] 
-[ 9585.259475] Process 6830 : gvfs-afc-volume has 2 threads
-[ 9585.259477] 35 time, 10057186 wait, 7903425297321 last run and 0 last queued
-[ 9585.259478] 0
-[ 9585.259478] 
-[ 9585.259480] Process 6843 : gvfsd-trash has 1 threads
-[ 9585.259481] 67 time, 33414823 wait, 7906016050528 last run and 0 last queued
-[ 9585.259482] 0
-[ 9585.259482] 
-[ 9585.259484] Process 6849 : indicator-apple has 3 threads
-[ 9585.259485] 130932 time, 27022665797 wait, 9584897147797 last run and 0 last queued
-[ 9585.259486] 0
-[ 9585.259486] 
-[ 9585.259488] Process 6856 : indicator-appli has 2 threads
-[ 9585.259490] 443 time, 465052663 wait, 9553282011842 last run and 0 last queued
-[ 9585.259491] 0
-[ 9585.259491] 
-[ 9585.259492] Process 6857 : indicator-datet has 3 threads
-[ 9585.259494] 119 time, 670018185 wait, 3593503679975 last run and 0 last queued
-[ 9585.259495] 0
-[ 9585.259495] 
-[ 9585.259496] Process 6859 : indicator-sound has 3 threads
-[ 9585.259498] 435 time, 674850168 wait, 9553282182298 last run and 0 last queued
-[ 9585.259499] 0
-[ 9585.259499] 
-[ 9585.259501] Process 6861 : indicator-messa has 2 threads
-[ 9585.259502] 469 time, 834444099 wait, 9553281922901 last run and 0 last queued
-[ 9585.259504] 0
-[ 9585.259504] 
-[ 9585.259506] Process 6863 : indicator-sessi has 3 threads
-[ 9585.259507] 106 time, 515488731 wait, 3593109755030 last run and 0 last queued
-[ 9585.259508] 0
-[ 9585.259508] 
-[ 9585.259510] Process 6887 : geoclue-master has 1 threads
-[ 9585.259512] 342 time, 284367801 wait, 9553281710290 last run and 0 last queued
-[ 9585.259513] 0
-[ 9585.259513] 
-[ 9585.259515] Process 6900 : ubuntu-geoip-pr has 3 threads
-[ 9585.259516] 3693 time, 4174552682 wait, 9582908530463 last run and 0 last queued
-[ 9585.259517] 0
-[ 9585.259517] 
-[ 9585.259519] Process 6906 : gvfsd-burn has 1 threads
-[ 9585.259521] 20 time, 25630130 wait, 1247290795915 last run and 0 last queued
-[ 9585.259522] 0
-[ 9585.259522] 
-[ 9585.259523] Process 6913 : gvfsd-metadata has 1 threads
-[ 9585.259525] 34 time, 18013345 wait, 7963952957318 last run and 0 last queued
-[ 9585.259526] 0
-[ 9585.259526] 
-[ 9585.259527] Process 6949 : gdu-notificatio has 1 threads
-[ 9585.259529] 2603 time, 608422726 wait, 9582914556267 last run and 0 last queued
-[ 9585.259530] 0
-[ 9585.259530] 
-[ 9585.259532] Process 6950 : telepathy-indic has 2 threads
-[ 9585.259534] 2625 time, 500908207 wait, 9582914468647 last run and 0 last queued
-[ 9585.259535] 0
-[ 9585.259535] 
-[ 9585.259537] Process 6953 : mission-control has 3 threads
-[ 9585.259538] 3686 time, 4057735379 wait, 9582908414650 last run and 0 last queued
-[ 9585.259540] 0
-[ 9585.259540] 
-[ 9585.259542] Process 6959 : goa-daemon has 2 threads
-[ 9585.259543] 39 time, 94936476 wait, 1259668768568 last run and 0 last queued
-[ 9585.259544] 0
-[ 9585.259544] 
-[ 9585.259546] Process 6964 : zeitgeist-datah has 2 threads
-[ 9585.259547] 2368 time, 3119898973 wait, 9583900455905 last run and 0 last queued
-[ 9585.259548] 0
-[ 9585.259548] 
-[ 9585.259550] Process 6965 : gnome-screensav has 3 threads
-[ 9585.259552] 13945 time, 3063697347 wait, 9582914506110 last run and 0 last queued
-[ 9585.259553] 0
-[ 9585.259553] 
-[ 9585.259554] Process 6971 : zeitgeist-daemo has 2 threads
-[ 9585.259555] 502 time, 1123866398 wait, 9553282149553 last run and 0 last queued
-[ 9585.259557] 0
-[ 9585.259557] 
-[ 9585.259558] Process 6978 : zeitgeist-fts has 2 threads
-[ 9585.259560] 393 time, 349746222 wait, 9553282116708 last run and 0 last queued
-[ 9585.259561] 0
-[ 9585.259561] 
-[ 9585.259562] Process 6987 : cat has 1 threads
-[ 9585.259564] 2 time, 6930995 wait, 1264532999019 last run and 0 last queued
-[ 9585.259565] 0
-[ 9585.259565] 
-[ 9585.259567] Process 6994 : update-notifier has 3 threads
-[ 9585.259569] 28904 time, 6094563163 wait, 9585109890802 last run and 0 last queued
-[ 9585.259570] 0
-[ 9585.259570] 
-[ 9585.259572] Process 7016 : deja-dup-monito has 3 threads
-[ 9585.259573] 102 time, 3269904021 wait, 7710809832372 last run and 0 last queued
-[ 9585.259574] 0
-[ 9585.259574] 
-[ 9585.259575] Process 7096 : notify-osd has 3 threads
-[ 9585.259577] 12692 time, 2969730854 wait, 9582914093747 last run and 0 last queued
-[ 9585.259578] 0
-[ 9585.259578] 
-[ 9585.259579] Process 7138 : firefox has 32 threads
-[ 9585.259581] 595063 time, 89532191832 wait, 9585248471998 last run and 0 last queued
-[ 9585.259582] 0
-[ 9585.259582] 
-[ 9585.259584] Process 7153 : at-spi-bus-laun has 3 threads
-[ 9585.259586] 24 time, 22191849 wait, 2286038386595 last run and 0 last queued
-[ 9585.259587] 0
-[ 9585.259587] 
-[ 9585.259589] Process 8660 : dhclient has 1 threads
-[ 9585.259590] 56 time, 1098649217 wait, 9219594073147 last run and 0 last queued
-[ 9585.259591] 0
-[ 9585.259591] 
-[ 9585.259593] Process 11253 : kdeinit4 has 1 threads
-[ 9585.259594] 48 time, 13993754 wait, 4104383244471 last run and 0 last queued
-[ 9585.259595] 0
-[ 9585.259595] 
-[ 9585.259597] Process 11256 : klauncher has 1 threads
-[ 9585.259598] 227 time, 139651356 wait, 9553281078169 last run and 0 last queued
-[ 9585.259599] 0
-[ 9585.259599] 
-[ 9585.259601] Process 11258 : kded4 has 1 threads
-[ 9585.259602] 6019 time, 148169441 wait, 9584258696715 last run and 0 last queued
-[ 9585.259603] 0
-[ 9585.259603] 
-[ 9585.259605] Process 11362 : gnome-terminal has 4 threads
-[ 9585.259606] 26662 time, 3032896142 wait, 9585243199445 last run and 0 last queued
-[ 9585.259607] 0
-[ 9585.259607] 
-[ 9585.259609] Process 11366 : gnome-pty-helpe has 1 threads
-[ 9585.259610] 12 time, 2171100 wait, 4223560293496 last run and 0 last queued
-[ 9585.259612] 0
-[ 9585.259612] 
-[ 9585.259614] Process 11367 : bash has 1 threads
-[ 9585.259616] 1740 time, 69425050 wait, 9583352894425 last run and 0 last queued
-[ 9585.259617] 0
-[ 9585.259617] 
-[ 9585.259619] Process 28902 : kworker/0:2 has 1 threads
-[ 9585.259620] 1635 time, 78589834 wait, 9319896061060 last run and 0 last queued
-[ 9585.259621] 0
-[ 9585.259621] 
-[ 9585.259623] Process 31996 : kworker/0:1 has 1 threads
-[ 9585.259625] 1726 time, 80726906 wait, 9583601152751 last run and 0 last queued
-[ 9585.259626] 0
-[ 9585.259626] 
-[ 9585.259627] Process 3593 : kworker/0:0 has 1 threads
-[ 9585.259629] 1358 time, 72903004 wait, 9585243191181 last run and 0 last queued
-[ 9585.259630] 0
-[ 9585.259630] 
-[ 9585.259632] Process 5398 : sublime_text has 7 threads
-[ 9585.259633] 11192 time, 2289884129 wait, 9585206486480 last run and 0 last queued
-[ 9585.259634] 0
-[ 9585.259634] 
-[ 9585.259636] Process 5496 : plugin_host has 4 threads
-[ 9585.259638] 2303 time, 922429125 wait, 9582238469882 last run and 0 last queued
-[ 9585.259639] 0
-[ 9585.259639] 
-[ 9585.259641] Process 5545 : driver.sh has 1 threads
-[ 9585.259642] 28 time, 7088459 wait, 9585243234008 last run and 0 last queued
-[ 9585.259643] 0
-[ 9585.259643] 
-[ 9585.259645] Process 5775 : sudo has 1 threads
-[ 9585.259646] 8 time, 950973 wait, 9585254544174 last run and 0 last queued
-[ 9585.259647] 0
-[ 9585.259647] 
-[ 9585.259649] Process 5776 : insmod has 1 threads
-[ 9585.259650] 2 time, 1159138 wait, 9585258709845 last run and 0 last queued
-[ 9585.259651] 0
-[ 9585.259651] 
-[ 9586.286755] EXITING THREAD TREE MODULE
+[24992.277111] ENTERING THREAD TREE MODULE
+[24992.277261] Check :: 0, swapper/0
+[24992.277313] Process 0 : swapper/0 has 1 threads
+[24992.277402] 0 time, 0 wait, 0 last run and 0 last queued
+[24992.277431] 0
+[24992.277462] KERNEL THREAD
+
+[24992.277506] Check :: 1, systemd
+[24992.277510] Process 1 : systemd has 1 threads
+[24992.277515] 1340 time, 210530684 wait, 24944708894640 last run and 0 last queued
+[24992.277517] 0
+[24992.277539] USER THREAD
+
+[24992.277545] Check :: 2, kthreadd
+[24992.277548] Process 2 : kthreadd has 1 threads
+[24992.277552] 113 time, 5549626 wait, 24992277164240 last run and 0 last queued
+[24992.277554] 0
+[24992.277556] KERNEL THREAD
+
+[24992.277610] 		 3 	:	ksoftirqd/0
+[24992.277631] 		 4 	:	kworker/0:0
+[24992.277635] 		 5 	:	kworker/0:0H
+[24992.277637] 		 7 	:	migration/0
+[24992.277640] 		 8 	:	rcu_preempt
+[24992.277642] 		 9 	:	rcu_bh
+[24992.277645] 		 10 	:	rcu_sched
+[24992.277648] 		 11 	:	watchdog/0
+[24992.277650] 		 12 	:	khelper
+[24992.277653] 		 13 	:	kdevtmpfs
+[24992.277655] 		 14 	:	netns
+[24992.277657] 		 15 	:	writeback
+[24992.277660] 		 16 	:	bioset
+[24992.277663] 		 17 	:	kworker/u17:0
+[24992.277665] 		 18 	:	kblockd
+[24992.277689] 		 20 	:	khungtaskd
+[24992.277692] 		 21 	:	kswapd0
+[24992.277695] 		 22 	:	ksmd
+[24992.277697] 		 23 	:	khugepaged
+[24992.277700] 		 24 	:	fsnotify_mark
+[24992.277702] 		 25 	:	crypto
+[24992.277705] 		 29 	:	kthrotld
+[24992.277707] 		 32 	:	deferwq
+[24992.277710] 		 55 	:	ata_sff
+[24992.277713] 		 56 	:	mpt_poll_0
+[24992.277715] 		 57 	:	mpt/0
+[24992.277718] 		 58 	:	khubd
+[24992.277720] 		 59 	:	scsi_eh_0
+[24992.277723] 		 61 	:	scsi_eh_1
+[24992.277725] 		 62 	:	scsi_eh_2
+[24992.277728] 		 65 	:	kworker/u17:1
+[24992.277730] 		 75 	:	jbd2/sda3-8
+[24992.277733] 		 76 	:	ext4-rsv-conver
+[24992.277736] 		 77 	:	ext4-unrsv-conv
+[24992.277738] 		 135 	:	ttm_swap
+[24992.277741] 		 136 	:	kpsmoused
+[24992.277743] 		 149 	:	jbd2/sda1-8
+[24992.277746] 		 150 	:	ext4-rsv-conver
+[24992.277749] 		 152 	:	ext4-unrsv-conv
+[24992.277751] 		 153 	:	jbd2/sda4-8
+[24992.277754] 		 154 	:	ext4-rsv-conver
+[24992.277758] 		 155 	:	ext4-unrsv-conv
+[24992.277761] 		 167 	:	hci0
+[24992.277764] 		 168 	:	hci0
+[24992.277769] 		 283 	:	kworker/0:1
+[24992.277773] 		 5196 	:	kworker/u16:0
+[24992.277777] 		 5914 	:	kworker/u16:2
+[24992.277780] 		 8272 	:	kritsz
+[24992.277783] 		 8419 	:	kworker/u16:1
+[24992.277785] 		 9456 	:	kritsz
+[24992.277791] Check :: 3, ksoftirqd/0
+[24992.277794] Process 3 : ksoftirqd/0 has 1 threads
+[24992.277798] 32035 time, 1856867885 wait, 24988868202609 last run and 0 last queued
+[24992.277800] 0
+[24992.277802] KERNEL THREAD
+
+[24992.277806] Check :: 4, kworker/0:0
+[24992.277808] Process 4 : kworker/0:0 has 1 threads
+[24992.277812] 63 time, 70743896 wait, 901359015931 last run and 0 last queued
+[24992.277814] 0
+[24992.277816] KERNEL THREAD
+
+[24992.277820] Check :: 5, kworker/0:0H
+[24992.277822] Process 5 : kworker/0:0H has 1 threads
+[24992.277826] 2 time, 897024 wait, 247684196 last run and 0 last queued
+[24992.277828] 0
+[24992.277830] KERNEL THREAD
+
+[24992.277833] Check :: 7, migration/0
+[24992.277836] Process 7 : migration/0 has 1 threads
+[24992.277839] 49 time, 40588 wait, 24944476873503 last run and 0 last queued
+[24992.277841] 0
+[24992.277843] KERNEL THREAD
+
+[24992.277847] Check :: 8, rcu_preempt
+[24992.277903] Process 8 : rcu_preempt has 1 threads
+[24992.277909] 119920 time, 11910561554 wait, 24992276932721 last run and 0 last queued
+[24992.277911] 0
+[24992.277913] KERNEL THREAD
+
+[24992.277917] Check :: 9, rcu_bh
+[24992.277920] Process 9 : rcu_bh has 1 threads
+[24992.277923] 2 time, 112329 wait, 252321930 last run and 0 last queued
+[24992.277925] 0
+[24992.277927] KERNEL THREAD
+
+[24992.277931] Check :: 10, rcu_sched
+[24992.277933] Process 10 : rcu_sched has 1 threads
+[24992.277936] 2 time, 3464 wait, 255683860 last run and 0 last queued
+[24992.277939] 0
+[24992.277940] KERNEL THREAD
+
+[24992.277944] Check :: 11, watchdog/0
+[24992.277947] Process 11 : watchdog/0 has 1 threads
+[24992.277950] 6245 time, 169412740 wait, 24989847435191 last run and 0 last queued
+[24992.277952] 0
+[24992.277954] KERNEL THREAD
+
+[24992.277958] Check :: 12, khelper
+[24992.277960] Process 12 : khelper has 1 threads
+[24992.277964] 2 time, 79143 wait, 269941310 last run and 0 last queued
+[24992.277966] 0
+[24992.277968] KERNEL THREAD
+
+[24992.277971] Check :: 13, kdevtmpfs
+[24992.277974] Process 13 : kdevtmpfs has 1 threads
+[24992.277977] 141 time, 4227678 wait, 5865477297 last run and 0 last queued
+[24992.277980] 0
+[24992.277981] KERNEL THREAD
+
+[24992.277985] Check :: 14, netns
+[24992.277988] Process 14 : netns has 1 threads
+[24992.277991] 2 time, 5281 wait, 284016211 last run and 0 last queued
+[24992.277993] 0
+[24992.277995] KERNEL THREAD
+
+[24992.277998] Check :: 15, writeback
+[24992.278001] Process 15 : writeback has 1 threads
+[24992.278004] 2 time, 5331 wait, 291593774 last run and 0 last queued
+[24992.278006] 0
+[24992.278008] KERNEL THREAD
+
+[24992.278012] Check :: 16, bioset
+[24992.278014] Process 16 : bioset has 1 threads
+[24992.278017] 2 time, 16876 wait, 292281816 last run and 0 last queued
+[24992.278019] 0
+[24992.278021] KERNEL THREAD
+
+[24992.278025] Check :: 17, kworker/u17:0
+[24992.278028] Process 17 : kworker/u17:0 has 1 threads
+[24992.278031] 5230 time, 51172152 wait, 16813471639044 last run and 0 last queued
+[24992.278033] 0
+[24992.278035] KERNEL THREAD
+
+[24992.278039] Check :: 18, kblockd
+[24992.278042] Process 18 : kblockd has 1 threads
+[24992.278044] 2 time, 4942 wait, 300689846 last run and 0 last queued
+[24992.278047] 0
+[24992.278049] KERNEL THREAD
+
+[24992.278052] Check :: 20, khungtaskd
+[24992.278055] Process 20 : khungtaskd has 1 threads
+[24992.278058] 215 time, 17252273 wait, 24981988475243 last run and 0 last queued
+[24992.278060] 0
+[24992.278062] KERNEL THREAD
+
+[24992.278066] Check :: 21, kswapd0
+[24992.278068] Process 21 : kswapd0 has 1 threads
+[24992.278071] 3 time, 40388 wait, 3807630686 last run and 0 last queued
+[24992.278074] 0
+[24992.278075] KERNEL THREAD
+
+[24992.278079] Check :: 22, ksmd
+[24992.278082] Process 22 : ksmd has 1 threads
+[24992.278085] 2 time, 165192 wait, 3708479471 last run and 0 last queued
+[24992.278087] 0
+[24992.278089] KERNEL THREAD
+
+[24992.278092] Check :: 23, khugepaged
+[24992.278095] Process 23 : khugepaged has 1 threads
+[24992.278098] 3416 time, 3642180681 wait, 24991819871282 last run and 0 last queued
+[24992.278100] 0
+[24992.278102] KERNEL THREAD
+
+[24992.278106] Check :: 24, fsnotify_mark
+[24992.278109] Process 24 : fsnotify_mark has 1 threads
+[24992.278112] 131 time, 10894283 wait, 24501808173055 last run and 0 last queued
+[24992.278114] 0
+[24992.278116] KERNEL THREAD
+
+[24992.278119] Check :: 25, crypto
+[24992.278122] Process 25 : crypto has 1 threads
+[24992.278125] 2 time, 82120 wait, 3709592496 last run and 0 last queued
+[24992.278127] 0
+[24992.278129] KERNEL THREAD
+
+[24992.278132] Check :: 29, kthrotld
+[24992.278135] Process 29 : kthrotld has 1 threads
+[24992.278138] 2 time, 13389 wait, 3714259793 last run and 0 last queued
+[24992.278140] 0
+[24992.278142] KERNEL THREAD
+
+[24992.278146] Check :: 32, deferwq
+[24992.278148] Process 32 : deferwq has 1 threads
+[24992.278151] 2 time, 5576 wait, 4121505245 last run and 0 last queued
+[24992.278153] 0
+[24992.278189] KERNEL THREAD
+
+[24992.278196] Check :: 55, ata_sff
+[24992.278198] Process 55 : ata_sff has 1 threads
+[24992.278202] 2 time, 2914881 wait, 4221412723 last run and 0 last queued
+[24992.278204] 0
+[24992.278206] KERNEL THREAD
+
+[24992.278209] Check :: 56, mpt_poll_0
+[24992.278212] Process 56 : mpt_poll_0 has 1 threads
+[24992.278215] 2 time, 1712495 wait, 4218854710 last run and 0 last queued
+[24992.278217] 0
+[24992.278219] KERNEL THREAD
+
+[24992.278222] Check :: 57, mpt/0
+[24992.278225] Process 57 : mpt/0 has 1 threads
+[24992.278228] 2 time, 2381640 wait, 4221419630 last run and 0 last queued
+[24992.278230] 0
+[24992.278232] KERNEL THREAD
+
+[24992.278235] Check :: 58, khubd
+[24992.278238] Process 58 : khubd has 1 threads
+[24992.278241] 84 time, 4149518 wait, 5284955312 last run and 0 last queued
+[24992.278243] 0
+[24992.278245] KERNEL THREAD
+
+[24992.278249] Check :: 59, scsi_eh_0
+[24992.278251] Process 59 : scsi_eh_0 has 1 threads
+[24992.278254] 2 time, 14148 wait, 4421415478 last run and 0 last queued
+[24992.278256] 0
+[24992.278258] KERNEL THREAD
+
+[24992.278262] Check :: 61, scsi_eh_1
+[24992.278264] Process 61 : scsi_eh_1 has 1 threads
+[24992.278267] 7 time, 3559446 wait, 4711442214 last run and 0 last queued
+[24992.278270] 0
+[24992.278271] KERNEL THREAD
+
+[24992.278275] Check :: 62, scsi_eh_2
+[24992.278278] Process 62 : scsi_eh_2 has 1 threads
+[24992.278281] 12 time, 19279595 wait, 4731179806 last run and 0 last queued
+[24992.278283] 0
+[24992.278285] KERNEL THREAD
+
+[24992.278288] Check :: 65, kworker/u17:1
+[24992.278291] Process 65 : kworker/u17:1 has 1 threads
+[24992.278295] 13790 time, 802954141 wait, 24989365680943 last run and 0 last queued
+[24992.278297] 0
+[24992.278299] KERNEL THREAD
+
+[24992.278302] Check :: 75, jbd2/sda3-8
+[24992.278305] Process 75 : jbd2/sda3-8 has 1 threads
+[24992.278308] 741 time, 52957384 wait, 24987703862959 last run and 0 last queued
+[24992.278310] 0
+[24992.278312] KERNEL THREAD
+
+[24992.278316] Check :: 76, ext4-rsv-conver
+[24992.278319] Process 76 : ext4-rsv-conver has 1 threads
+[24992.278322] 2 time, 153214 wait, 4828922476 last run and 0 last queued
+[24992.278324] 0
+[24992.278326] KERNEL THREAD
+
+[24992.278329] Check :: 77, ext4-unrsv-conv
+[24992.278332] Process 77 : ext4-unrsv-conv has 1 threads
+[24992.278335] 2 time, 161505 wait, 4829261878 last run and 0 last queued
+[24992.278337] 0
+[24992.278339] KERNEL THREAD
+
+[24992.278343] Check :: 96, systemd-journal
+[24992.278345] Process 96 : systemd-journal has 1 threads
+[24992.278348] 1177 time, 940084350 wait, 24992269271415 last run and 0 last queued
+[24992.278351] 0
+[24992.278353] USER THREAD
+
+[24992.278356] Check :: 118, systemd-udevd
+[24992.278359] Process 118 : systemd-udevd has 1 threads
+[24992.278362] 1032 time, 394058055 wait, 24992276645179 last run and 0 last queued
+[24992.278364] 0
+[24992.278366] USER THREAD
+
+[24992.278370] Check :: 135, ttm_swap
+[24992.278373] Process 135 : ttm_swap has 1 threads
+[24992.278376] 2 time, 2352513 wait, 5293178757 last run and 0 last queued
+[24992.278378] 0
+[24992.278380] KERNEL THREAD
+
+[24992.278383] Check :: 136, kpsmoused
+[24992.278386] Process 136 : kpsmoused has 1 threads
+[24992.278389] 2 time, 4673751 wait, 5336947470 last run and 0 last queued
+[24992.278391] 0
+[24992.278393] KERNEL THREAD
+
+[24992.278397] Check :: 149, jbd2/sda1-8
+[24992.278399] Process 149 : jbd2/sda1-8 has 1 threads
+[24992.278402] 3 time, 9240074 wait, 5446930272 last run and 0 last queued
+[24992.278405] 0
+[24992.278407] KERNEL THREAD
+
+[24992.278410] Check :: 150, ext4-rsv-conver
+[24992.278413] Process 150 : ext4-rsv-conver has 1 threads
+[24992.278416] 2 time, 4402199 wait, 5451294977 last run and 0 last queued
+[24992.278418] 0
+[24992.278420] KERNEL THREAD
+
+[24992.278423] Check :: 152, ext4-unrsv-conv
+[24992.278426] Process 152 : ext4-unrsv-conv has 1 threads
+[24992.278429] 2 time, 10269 wait, 5451328094 last run and 0 last queued
+[24992.278431] 0
+[24992.280622] KERNEL THREAD
+
+[24992.292531] Check :: 153, jbd2/sda4-8
+[24992.292542] Process 153 : jbd2/sda4-8 has 1 threads
+[24992.292548] 4089 time, 204973506 wait, 24989365867254 last run and 0 last queued
+[24992.292551] 0
+[24992.292553] KERNEL THREAD
+
+[24992.292558] Check :: 154, ext4-rsv-conver
+[24992.292561] Process 154 : ext4-rsv-conver has 1 threads
+[24992.292564] 2 time, 1499354 wait, 5459204210 last run and 0 last queued
+[24992.292566] 0
+[24992.292568] KERNEL THREAD
+
+[24992.292572] Check :: 155, ext4-unrsv-conv
+[24992.292575] Process 155 : ext4-unrsv-conv has 1 threads
+[24992.292578] 2 time, 3014717 wait, 5462303530 last run and 0 last queued
+[24992.292580] 0
+[24992.292582] KERNEL THREAD
+
+[24992.292586] Check :: 167, hci0
+[24992.292589] Process 167 : hci0 has 1 threads
+[24992.292592] 2 time, 3236649 wait, 5549147072 last run and 0 last queued
+[24992.292594] 0
+[24992.292596] KERNEL THREAD
+
+[24992.292600] Check :: 168, hci0
+[24992.292603] Process 168 : hci0 has 1 threads
+[24992.292606] 2 time, 3189008 wait, 5552377627 last run and 0 last queued
+[24992.292608] 0
+[24992.292610] KERNEL THREAD
+
+[24992.292614] Check :: 185, vmtoolsd
+[24992.292617] Process 185 : vmtoolsd has 2 threads
+[24992.292620] 247614 time, 72971692923 wait, 24992228954081 last run and 0 last queued
+[24992.292623] 0
+[24992.292625] USER THREAD
+
+[24992.292628] Check :: 186, dbus-daemon
+[24992.292631] Process 186 : dbus-daemon has 1 threads
+[24992.292635] 404 time, 43130413 wait, 21874272790977 last run and 0 last queued
+[24992.292637] 0
+[24992.292639] USER THREAD
+
+[24992.292643] Check :: 187, systemd-logind
+[24992.292645] Process 187 : systemd-logind has 1 threads
+[24992.292649] 115 time, 35467392 wait, 21874273367245 last run and 0 last queued
+[24992.292673] 0
+[24992.292676] USER THREAD
+
+[24992.292680] Check :: 190, lxdm-binary
+[24992.292683] Process 190 : lxdm-binary has 1 threads
+[24992.292686] 130 time, 28729637 wait, 38260347519 last run and 0 last queued
+[24992.292688] 0
+[24992.292690] USER THREAD
+
+[24992.292693] Check :: 192, X
+[24992.292696] Process 192 : X has 1 threads
+[24992.292699] 748328 time, 174460607093 wait, 24992290229539 last run and 0 last queued
+[24992.292701] 0
+[24992.292703] USER THREAD
+
+[24992.292707] Check :: 213, lxdm-session
+[24992.292709] Process 213 : lxdm-session has 1 threads
+[24992.292713] 117 time, 78587003 wait, 38253406289 last run and 0 last queued
+[24992.292715] 0
+[24992.292716] USER THREAD
+
+[24992.292720] Check :: 214, systemd
+[24992.292723] Process 214 : systemd has 1 threads
+[24992.292726] 39 time, 42303724 wait, 21851989228721 last run and 0 last queued
+[24992.292728] 0
+[24992.292730] USER THREAD
+
+[24992.292734] Check :: 215, (sd-pam)
+[24992.292736] Process 215 : (sd-pam) has 1 threads
+[24992.292740] 3 time, 12905105 wait, 38248597743 last run and 0 last queued
+[24992.292742] 0
+[24992.292744] USER THREAD
+
+[24992.292747] Check :: 216, lxsession
+[24992.292750] Process 216 : lxsession has 2 threads
+[24992.292753] 6418 time, 320340345 wait, 24988315582787 last run and 0 last queued
+[24992.292755] 0
+[24992.292757] USER THREAD
+
+[24992.292761] Check :: 226, dbus-launch
+[24992.292764] Process 226 : dbus-launch has 1 threads
+[24992.292767] 11 time, 3619279 wait, 38348825239 last run and 0 last queued
+[24992.292769] 0
+[24992.292771] USER THREAD
+
+[24992.292774] Check :: 227, dbus-daemon
+[24992.292777] Process 227 : dbus-daemon has 1 threads
+[24992.292780] 608 time, 51819688 wait, 24944707584230 last run and 0 last queued
+[24992.292782] 0
+[24992.292784] USER THREAD
+
+[24992.292788] Check :: 234, openbox
+[24992.292790] Process 234 : openbox has 1 threads
+[24992.292793] 71395 time, 6066071737 wait, 24989080159846 last run and 0 last queued
+[24992.292796] 0
+[24992.292797] USER THREAD
+
+[24992.292801] Check :: 237, lxpanel
+[24992.292804] Process 237 : lxpanel has 2 threads
+[24992.292807] 105704 time, 32613634865 wait, 24992215448529 last run and 0 last queued
+[24992.292809] 0
+[24992.292876] USER THREAD
+
+[24992.292883] Check :: 238, pcmanfm
+[24992.292886] Process 238 : pcmanfm has 2 threads
+[24992.292889] 4016 time, 717913078 wait, 24987753270644 last run and 0 last queued
+[24992.292891] 0
+[24992.292893] USER THREAD
+
+[24992.292897] Check :: 241, lxpolkit
+[24992.292899] Process 241 : lxpolkit has 2 threads
+[24992.292902] 948 time, 167809509 wait, 18378939215955 last run and 0 last queued
+[24992.292905] 0
+[24992.292906] USER THREAD
+
+[24992.292910] Check :: 245, vmtoolsd
+[24992.292913] Process 245 : vmtoolsd has 1 threads
+[24992.292916] 248357 time, 116985705348 wait, 24992231501260 last run and 0 last queued
+[24992.292918] 0
+[24992.292920] USER THREAD
+
+[24992.292924] Check :: 252, menu-cached
+[24992.292926] Process 252 : menu-cached has 2 threads
+[24992.292929] 5 time, 32412869 wait, 38841137386 last run and 0 last queued
+[24992.292932] 0
+[24992.292934] USER THREAD
+
+[24992.292937] Check :: 253, polkitd
+[24992.292940] Process 253 : polkitd has 6 threads
+[24992.292943] 152 time, 110842973 wait, 15191250510745 last run and 0 last queued
+[24992.292945] 0
+[24992.292947] USER THREAD
+
+[24992.292951] Check :: 283, kworker/0:1
+[24992.292953] Process 283 : kworker/0:1 has 1 threads
+[24992.292957] 62732 time, 6239721392 wait, 24992254974415 last run and 0 last queued
+[24992.292959] 0
+[24992.292961] KERNEL THREAD
+
+[24992.292965] Check :: 368, firefox
+[24992.292967] Process 368 : firefox has 31 threads
+[24992.292970] 528580 time, 41580805059 wait, 24987753968918 last run and 0 last queued
+[24992.292973] 0
+[24992.292974] USER THREAD
+
+[24992.292978] Check :: 380, at-spi-bus-laun
+[24992.292981] Process 380 : at-spi-bus-laun has 3 threads
+[24992.292984] 38 time, 15654104 wait, 8402900692522 last run and 0 last queued
+[24992.292986] 0
+[24992.292988] USER THREAD
+
+[24992.292996] Check :: 499, dhcpcd
+[24992.292999] Process 499 : dhcpcd has 1 threads
+[24992.293002] 280 time, 21589148 wait, 24578404466880 last run and 0 last queued
+[24992.293004] 0
+[24992.293006] USER THREAD
+
+[24992.293010] Check :: 1388, subl
+[24992.293013] Process 1388 : subl has 8 threads
+[24992.293016] 551357 time, 124540176947 wait, 24992261410092 last run and 0 last queued
+[24992.293018] 0
+[24992.293020] USER THREAD
+
+[24992.293024] Check :: 1526, plugin_host
+[24992.293027] Process 1526 : plugin_host has 4 threads
+[24992.293030] 138705 time, 6883839986 wait, 24987808123110 last run and 0 last queued
+[24992.293032] 0
+[24992.293034] USER THREAD
+
+[24992.293038] Check :: 4024, kdeinit4
+[24992.293040] Process 4024 : kdeinit4 has 1 threads
+[24992.293043] 58 time, 16533429 wait, 15191357602521 last run and 0 last queued
+[24992.293045] 0
+[24992.293047] USER THREAD
+
+[24992.293051] Check :: 4026, klauncher
+[24992.293054] Process 4026 : klauncher has 1 threads
+[24992.293057] 118 time, 23072861 wait, 24944707864720 last run and 0 last queued
+[24992.293059] 0
+[24992.293061] USER THREAD
+
+[24992.293064] Check :: 4028, kded4
+[24992.293067] Process 4028 : kded4 has 2 threads
+[24992.293070] 1640 time, 68459862 wait, 24987754140141 last run and 0 last queued
+[24992.293072] 0
+[24992.293074] USER THREAD
+
+[24992.293078] Check :: 4165, knotify4
+[24992.293080] Process 4165 : knotify4 has 2 threads
+[24992.293084] 1718 time, 104951306 wait, 24987754342125 last run and 0 last queued
+[24992.293086] 0
+[24992.293088] USER THREAD
+
+[24992.293121] Check :: 4167, upowerd
+[24992.293125] Process 4167 : upowerd has 3 threads
+[24992.293129] 83 time, 12221470 wait, 15191250974661 last run and 0 last queued
+[24992.293131] 0
+[24992.293133] USER THREAD
+
+[24992.293136] Check :: 4181, udisksd
+[24992.293139] Process 4181 : udisksd has 5 threads
+[24992.293142] 120 time, 12110683 wait, 24797651228732 last run and 0 last queued
+[24992.293144] 0
+[24992.293146] USER THREAD
+
+[24992.293150] Check :: 4547, lxterminal
+[24992.293152] Process 4547 : lxterminal has 2 threads
+[24992.293155] 13477 time, 978527162 wait, 24992287391313 last run and 0 last queued
+[24992.293158] 0
+[24992.293192] USER THREAD
+
+[24992.293198] Check :: 4548, gnome-pty-helpe
+[24992.293201] Process 4548 : gnome-pty-helpe has 1 threads
+[24992.293204] 14 time, 3386342 wait, 22260669962779 last run and 0 last queued
+[24992.293207] 0
+[24992.293208] USER THREAD
+
+[24992.293212] Check :: 4549, bash
+[24992.293215] Process 4549 : bash has 1 threads
+[24992.293218] 362 time, 53437822 wait, 23912745387604 last run and 0 last queued
+[24992.293220] 0
+[24992.293222] USER THREAD
+
+[24992.293226] Check :: 5196, kworker/u16:0
+[24992.293228] Process 5196 : kworker/u16:0 has 1 threads
+[24992.293232] 1635 time, 88597321 wait, 24834701887302 last run and 0 last queued
+[24992.293234] 0
+[24992.293236] KERNEL THREAD
+
+[24992.293239] Check :: 5322, bash
+[24992.293242] Process 5322 : bash has 1 threads
+[24992.293245] 299 time, 55367868 wait, 24989072642593 last run and 0 last queued
+[24992.293247] 0
+[24992.293249] USER THREAD
+
+[24992.293253] Check :: 5914, kworker/u16:2
+[24992.293256] Process 5914 : kworker/u16:2 has 1 threads
+[24992.293259] 2427 time, 237776250 wait, 24834701513989 last run and 0 last queued
+[24992.293261] 0
+[24992.293263] KERNEL THREAD
+
+[24992.293267] Check :: 8272, kritsz
+[24992.293269] Process 8272 : kritsz has 1 threads
+[24992.293273] 2 time, 7724 wait, 24679922627487 last run and 0 last queued
+[24992.293275] 0
+[24992.293277] KERNEL THREAD
+
+[24992.293280] Check :: 8419, kworker/u16:1
+[24992.293283] Process 8419 : kworker/u16:1 has 1 threads
+[24992.293286] 467 time, 36132815 wait, 24991373386339 last run and 0 last queued
+[24992.293288] 0
+[24992.293290] KERNEL THREAD
+
+[24992.293294] Check :: 9206, driver.sh
+[24992.293297] Process 9206 : driver.sh has 1 threads
+[24992.293300] 31 time, 5012528 wait, 24992255228827 last run and 0 last queued
+[24992.293302] 0
+[24992.293304] USER THREAD
+
+[24992.293308] Check :: 9453, sudo
+[24992.293310] Process 9453 : sudo has 1 threads
+[24992.293313] 9 time, 2766677 wait, 24992270069716 last run and 0 last queued
+[24992.293316] 0
+[24992.293318] USER THREAD
+
+[24992.293321] Check :: 9454, insmod
+[24992.293323] Process 9454 : insmod has 1 threads
+[24992.293326] 7 time, 14493464 wait, 24992292162712 last run and 0 last queued
+[24992.293328] 0
+[24992.293330] USER THREAD
+
+[24992.293334] Check :: 9455, systemd-udevd
+[24992.293337] Process 9455 : systemd-udevd has 1 threads
+[24992.293340] 3 time, 614553 wait, 24992276946833 last run and 0 last queued
+[24992.293342] 0
+[24992.293344] USER THREAD
+
+[24992.293348] Check :: 9456, kritsz
+[24992.293350] Process 9456 : kritsz has 1 threads
+[24992.293353] 2 time, 7564 wait, 24992290220013 last run and 0 last queued
+[24992.293355] 0
+[24992.293357] KERNEL THREAD
+
+[24992.293549] WE ARE RUNNING A KERNEL THREAD kritsz
+
+[24993.329790] EXITING THREAD TREE MODULE
