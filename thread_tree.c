@@ -4,6 +4,7 @@
 #include <linux/sched.h>  // for task_struct
 #include <linux/kthread.h>  // for threads
 #include <asm/current.h>
+//#include <asm/page.h>
 
 MODULE_LICENSE("Dual BSD/GPL");
 
@@ -59,7 +60,7 @@ int __init hello_init(void)
 		printk("Check :: %d, %s\n", _task->pid, _task->comm);
 
 		printk("Process %d : %s has %d threads\n", task->pid, task->comm, get_nr_threads(task));
-		printk("%lu time, %llu wait, %llu last run and %llu last queued\n", task->sched_info.pcount, task->sched_info.run_delay,
+		printk("%uKB Kernel Stack size, %lu time, %llu wait, %llu last run and %llu last queued\n", THREAD_SIZE/1024, task->sched_info.pcount, task->sched_info.run_delay,
 	 			task->sched_info.last_arrival, task->sched_info.last_queued);
 		printk("%lu\n",task->rt.timeout);
 
