@@ -1,6 +1,3 @@
-/*
- *  hello-5.c - Demonstrates command line argument passing to a module.
- */
 #include <linux/module.h>
 #include <linux/moduleparam.h>
 #include <linux/kernel.h>
@@ -8,7 +5,6 @@
 #include <linux/stat.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Peter Jay Salzman");
 
 static short int myshort = 1;
 static int myint = 420;
