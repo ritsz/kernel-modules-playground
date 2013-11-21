@@ -7,6 +7,7 @@
 #include <linux/device.h>
 #include <linux/errno.h>
 #include <linux/cdev.h>
+#include <asm/uaccess.h>
 
 MODULE_LICENSE("GPL");
 
@@ -14,6 +15,8 @@ static dev_t first_dev;
 static struct class *cl;
 static struct device* dev;
 static struct cdev c_dev;
+static char c;
+static count = 0;
 
 void chrdev_exit(void)
 {
@@ -44,13 +47,26 @@ static int my_close(struct inode *i, struct file *f)
 static ssize_t my_read(struct file *f, char __user *buf, size_t len, loff_t *off)
 {
   	printk(KERN_INFO "Driver: read()\n");
-  	return 0;
+    if (copy_to_user(buf, &c, 4) != 0)
+        return -EFAULT;
+    else {
+    	if (count == 0) {
+    		count += 1;
+    		return 4;
+    	}
+    	else return 0;
+    }
 }
 
 static ssize_t my_write(struct file *f, const char __user *buf, size_t len, loff_t *off)
 {
   	printk(KERN_INFO "Driver: write()\n");
-  	return len;
+    if (copy_from_user(&c, buf, 1) != 0)
+        return -EFAULT;
+    else {
+    	printk(KERN_INFO "%c read\n",c);
+        return 1;
+    }
 }
   
 

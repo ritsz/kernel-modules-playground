@@ -2,6 +2,8 @@
 #include <linux/module.h>
 #include <linux/sched.h>
 #include <asm/current.h>
+#include <linux/slab.h>
+#include <linux/mm.h>
 
 MODULE_LICENSE("Dual BSD/GPL");
 

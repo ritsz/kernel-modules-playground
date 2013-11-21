@@ -30,25 +30,27 @@ static int simacc_write(struct file *file, const char *buffer,
     int i;
     char c;
     if (count > MAX_INPUT_SIZE)
-    len = MAX_INPUT_SIZE;
+    	len = MAX_INPUT_SIZE;
     else
-    len = count;
+    	len = count;
 
     if(copy_from_user(input_buf, buffer, len))
-    return -EFAULT;
+    	return -EFAULT;
     input_buf[len] = '&#92;&#48;';
 
     i = 0;
     do {
-    c = input_buf[i++];
-    if (c >= '0' && c <= '9') {
-        num = num * 10 + c - '0';
-    } else {
-        sum += num;
-        num = 0;
-    }
+    	c = input_buf[i++];
+    	if (c >= '0' && c <= '9') {
+        	num = num * 10 + c - '0';
+    	} else {
+        	sum += num;
+    	   	num = 0;
+    	}
     } while (c != '&#92;&#48;' && i < MAX_INPUT_SIZE);
+    
     sprintf(result, "%lu", sum);
+    
     return len;
 } 
 
