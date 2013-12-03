@@ -37,7 +37,7 @@ if [[ $? -eq 0 ]]; then
 	#If make succedded. 
 	timestamp="<$(($(date +%N)/1000000))>"
 	echo "$timestamp : Make $file was successful"
-	# sudo dmesg --clear
+	sudo dmesg --clear
 
 	timestamp="<$(($(date +%N)/1000000))>"
 	echo "$timestamp : Loading $file"
@@ -45,11 +45,11 @@ if [[ $? -eq 0 ]]; then
 	sleep 1
 
 	timestamp="<$(($(date +%N)/1000000))>"
-	echo "$timestamp : Removing $file"
-	sudo rmmod $module
+	#echo "$timestamp : Removing $file"
+	#sudo rmmod $module
 	
-	# dmesg > data.txt
-	# subl data.txt 
+	dmesg > data.txt
+	subl data.txt 
 
 	timestamp="<$(($(date +%N)/1000000))>"
 	echo "$timestamp : Cleanup"
