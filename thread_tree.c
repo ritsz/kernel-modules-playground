@@ -56,7 +56,8 @@ int __init hello_init(void)
 	do {
 		// A check to see whether void *stack points to the thread_info structure or not.
 		struct thread_info * ti = (struct thread_info*)(task->stack);
-		struct task_struct * _task = ti->task; 
+		struct task_struct * _task = ti->task;
+		printk("First Check Address %p\n", ti); 
 		printk("Check :: %d, %s\n", _task->pid, _task->comm);
 
 		printk("Process %d : %s has %d threads\n", task->pid, task->comm, get_nr_threads(task));
