@@ -57,6 +57,7 @@ int __init hello_init(void)
 		// A check to see whether void *stack points to the thread_info structure or not.
 		struct thread_info * ti = (struct thread_info*)(task->stack);
 		struct task_struct * _task = ti->task;
+		// A check to see if each task has a separate stack area.
 		printk("First Check Address %p\n", ti); 
 		printk("Check :: %d, %s\n", _task->pid, _task->comm);
 
