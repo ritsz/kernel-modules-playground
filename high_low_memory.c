@@ -25,17 +25,17 @@ static int hello_init(void) {
   		//unsigned long page_addr = page_address(highmem_page);
   		//printk(KERN_ERR "Address %lu\n", page_addr);
 
-    	long highmem_page_address = kmap( highmem_page );
-    	if ( ! highmem_page_address ) printk( KERN_ERR "Couldn't map highmem pages.\n");
-    	else {
-      	printk( KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
-            	highmem_page_address,
-            	0
-           	);
-     	}
+    		long highmem_page_address = kmap( highmem_page );
+    		if ( ! highmem_page_address ) printk( KERN_ERR "Couldn't map highmem pages.\n");
+    		else {
+      			printk( KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
+            		highmem_page_address,
+            		0
+           		);
+     		}	
 
-     	long phy_addr = virt_to_phys(page_address(highmem_page));
-     	printk(KERN_ERR "Physical Address is %lx \n", phy_addr);
+     		long phy_addr = virt_to_phys(page_address(highmem_page));
+     		printk(KERN_ERR "Physical Address is %lx \n", phy_addr);
   	}
 
   	kunmap(highmem_page);
@@ -52,16 +52,16 @@ static int hello_init(void) {
   	else {
 
   		long highmem_page_address = kmap( highmem_page );
-    	if ( ! highmem_page_address ) printk( KERN_ERR "Couldn't map highmem pages.\n");
-    	else {
-      	printk( KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
-            	highmem_page_address,
-            	0
-           	);
-     	}
+    		if ( ! highmem_page_address ) printk( KERN_ERR "Couldn't map highmem pages.\n");
+    		else {
+      			printk( KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
+            			highmem_page_address,
+            			0
+           		);
+     		}
 
-     	long phy_addr = virt_to_phys(page_address(highmem_page));
-     	printk(KERN_ERR "Physical Address is %lx \n", phy_addr);
+     		long phy_addr = virt_to_phys(page_address(highmem_page));
+     		printk(KERN_ERR "Physical Address is %lx \n", phy_addr);
   	}
 
   	kunmap(highmem_page);
