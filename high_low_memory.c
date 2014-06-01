@@ -18,19 +18,19 @@ static int hello_init(void) {
 	 *	PHYSICAL 	< 	896MB
 	 */
 
-	struct page *highmem_page = alloc_page(GFP_USER );
-	if ( ! highmem_page ) printk(KERN_ERR "Couldn't allocate highmem page with order : 3\n" );
+	struct page *highmem_page = alloc_page(GFP_USER);
+	if (!highmem_page) printk(KERN_ERR "Couldn't allocate highmem page with order : 3\n" );
   	else {
 
   		//unsigned long page_addr = page_address(highmem_page);
   		//printk(KERN_ERR "Address %lu\n", page_addr);
 
-    		long highmem_page_address = kmap( highmem_page );
-    		if ( ! highmem_page_address ) printk( KERN_ERR "Couldn't map highmem pages.\n");
+    		long highmem_page_address = kmap(highmem_page);
+    		if (!highmem_page_address) printk(KERN_ERR "Couldn't map highmem pages.\n");
     		else {
-      			printk( KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
-            		highmem_page_address,
-            		0
+      			printk(KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
+            			highmem_page_address,
+            			0
            		);
      		}	
 
@@ -47,14 +47,14 @@ static int hello_init(void) {
 	 *	PHYSICAL 	> 	896MB
 	 */ 	
 
-  	highmem_page = alloc_page(GFP_HIGHUSER );
-	if ( ! highmem_page ) printk(KERN_ERR "Couldn't allocate highmem page with order : 3\n" );
+  	highmem_page = alloc_page(GFP_HIGHUSER);
+	if (!highmem_page) printk(KERN_ERR "Couldn't allocate highmem page with order : 3\n" );
   	else {
 
-  		long highmem_page_address = kmap( highmem_page );
-    		if ( ! highmem_page_address ) printk( KERN_ERR "Couldn't map highmem pages.\n");
+  		long highmem_page_address = kmap(highmem_page);
+    		if (!highmem_page_address) printk(KERN_ERR "Couldn't map highmem pages.\n");
     		else {
-      			printk( KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
+      			printk(KERN_ERR "Address for highuser pages is : %lx. Order: %d.\n", 
             			highmem_page_address,
             			0
            		);
