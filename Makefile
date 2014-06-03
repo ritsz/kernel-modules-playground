@@ -14,8 +14,8 @@ else
 	KERNEL_SOURCE2 := /home/ritsz/linux/
 	PWD := $(shell pwd)
 default:
-	${MAKE} -C ${KERNEL_SOURCE2} SUBDIRS=${PWD} modules
+	${MAKE} -C ${KERNEL_SOURCE} SUBDIRS=${PWD} modules
  
 clean:
-	${MAKE} -C ${KERNEL_SOURCE2} SUBDIRS=${PWD} clean
+	${MAKE} -C ${KERNEL_SOURCE} SUBDIRS=${PWD} clean
 endif

@@ -45,16 +45,7 @@ if [[ $? -eq 0 ]]; then
 	sleep 1
 
 	timestamp="<$(($(date +%N)/1000000))>"
-	#echo "$timestamp : Removing $file"
-	#sudo rmmod $module
 	
-	dmesg > data.txt
-	subl data.txt 
-
-	timestamp="<$(($(date +%N)/1000000))>"
-	echo "$timestamp : Cleanup"
-	make --quiet clean
-
 else
 	timestamp="<$(($(date +%N)/1000000))>"
 	echo "
