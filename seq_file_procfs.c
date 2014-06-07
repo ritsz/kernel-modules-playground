@@ -68,6 +68,11 @@ static int my_open(struct inode *inode, struct file *file)
 	return seq_open(file, &swaps_op);
 }
 
+/* The file_operations structure needs only the open function, all other
+ * functions like read, seek and release are provided by seq_file.h, and
+ * seq_file cannot be written to.
+ */
+
 static struct file_operations fops = {
 	.owner = THIS_MODULE,
 	.open = my_open,
