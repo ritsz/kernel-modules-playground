@@ -1,43 +1,58 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
-#include <linux/proc_fs.h>
-#include <asm/uaccess.h>
+#include <linux/sched.h>
 #include <linux/seq_file.h>
 #include <linux/slab.h>
+#include <linux/proc_fs.h>
+#include <asm/uaccess.h>
+#include <asm/current.h>
 
 /* proc_mkdir -> to create directory
  * proc_create_data -> make a proc file, add file_operations callbacks
  * proc_remove_entry -> remove directory/file
+ * To the file operations structure we add generic seq opetaions that are
+ * reusable and only open() fops needs to change. The open function calls
+ * seq_open, which adds a seq_operations structure to the file. The
+ * seq_operations structure needs to be given the start, next, stop and show
+ * functions that will be used to iterate over the list that has to be printed.
  */
 
+/* We would like to iterate over the task_struct list and print name and pids */
 static void *my_start(struct seq_file *s, loff_t *pos)
 {
+	/* We just return the pointer to the list_head tasks structure for current
+	 * process.infinite loop. The structure is available to other functions 
+	 * via the argument void *v
+	 */
 	pr_info("START\n");
-	loff_t *spos = kmalloc(sizeof(loff_t), GFP_KERNEL);
-	if (!spos)
-		return NULL;
-	*spos = *pos;
-	return spos;
+	return &(current->tasks);
 }
 
 static void *my_next(struct seq_file *s, void *v, loff_t *pos)
 {
+	/* void *v contains the pointer from start() or previous call of next.
+	 * We need to type cast it to the correct data structure and return the
+	 * next pointer as well
+	 */
 	pr_info("NEXT\n");
-	loff_t *spos = (loff_t *)v;
-	*pos = ++(*spos);
-	return spos;
+	struct list_head *ptr = ((struct list_head *) v)->next;
+	return ptr;
 }
 
 static void my_stop(struct seq_file *s, void *v)
 {
-	kfree(v);
 }
 
 static int my_show(struct seq_file *s, void *v)
 {
-	loff_t *spos = (loff_t *) v;
-	seq_printf(s, "%Ld\n", *spos);
+	/* typecast void *v into list_head pointer. Find container of that
+	 * pointer, which will be a pointer to the task_struct structure of that
+	 * particular task. Derefference and print the task's comm and pid.
+	 */
+	struct list_head *ptr = ((struct list_head *) v)->next;
+	struct task_struct *task = container_of(ptr, struct task_struct, tasks);
+	seq_printf(s, "%u\t:\t%s\n", task->pid, task->comm);
 	return 0;
 }
 
@@ -65,18 +80,15 @@ static struct proc_dir_entry *example_dir, *first_file;
 
 static int __init procexample_module_init(void)
 {
-	/* Effectively, everything is similar to the misc_char_device file that
-	 * we created, only this time, file gets created in /proc instead of
-	 * /dev. To create the files in the procfs filesystem we use the procfs
-	 * API such as proc_mkdir, proc_create_data and proc_remove_entry. The
-	 * legacy procfs API such as create_proc_entry have been depricated
-	 * since 3.10
+	/* Instead of procfs API, we are using seq_file API to read data
+	 * from proc file. This allows data more than PAGE_SIZE to be read.
+	 * Seq_file can't be written to by user spcae.
 	 */
 	example_dir = proc_mkdir("example", NULL);
         if(example_dir == NULL)
                 return -ENOMEM;
 
-	first_file = proc_create_data("first", 0644, example_dir, &fops, NULL);
+	first_file = proc_create_data("seq_proc", 0644, example_dir, &fops, NULL);
         if(first_file == NULL) {
 		remove_proc_entry("example", NULL);
 		return -ENOMEM;
@@ -86,7 +98,7 @@ static int __init procexample_module_init(void)
 
 static void __exit procexample_module_exit(void)
 {
-	remove_proc_entry("first", example_dir);
+	remove_proc_entry("seq_proc", example_dir);
 	remove_proc_entry("example", NULL);
 }
 
