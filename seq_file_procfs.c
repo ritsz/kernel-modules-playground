@@ -25,6 +25,7 @@ static void *my_start(struct seq_file *s, loff_t *pos)
 	 * process.infinite loop. The structure is available to other functions 
 	 * via the argument void *v
 	 */
+	dump_stack();
 	pr_info("START\n");
 	return &(current->tasks);
 }
@@ -35,6 +36,7 @@ static void *my_next(struct seq_file *s, void *v, loff_t *pos)
 	 * We need to type cast it to the correct data structure and return the
 	 * next pointer as well
 	 */
+	dump_stack();
 	pr_info("NEXT\n");
 	struct list_head *ptr = ((struct list_head *) v)->next;
 	return ptr;
@@ -42,6 +44,7 @@ static void *my_next(struct seq_file *s, void *v, loff_t *pos)
 
 static void my_stop(struct seq_file *s, void *v)
 {
+	pr_info("STOP\n");
 }
 
 static int my_show(struct seq_file *s, void *v)
@@ -50,6 +53,7 @@ static int my_show(struct seq_file *s, void *v)
 	 * pointer, which will be a pointer to the task_struct structure of that
 	 * particular task. Derefference and print the task's comm and pid.
 	 */
+	dump_stack();
 	struct list_head *ptr = ((struct list_head *) v)->next;
 	struct task_struct *task = container_of(ptr, struct task_struct, tasks);
 	seq_printf(s, "%u\t:\t%s\n", task->pid, task->comm);
