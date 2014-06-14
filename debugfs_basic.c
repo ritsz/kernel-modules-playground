@@ -46,7 +46,7 @@ int __init my_debugfs_init(void)
 	 * /sys/kernel/debug/basics/sum is read from, it will output the value
 	 * of sum variable 
 	 */
-	holder = debugfs_create_u32("sum", 0444, dir, &sum);
+	holder = debugfs_create_u32("sum", 0644, dir, &sum);
 	if (!holder) {
 		pr_err("debugfs failed to create file 'sum'\n");
 		return -1;	
