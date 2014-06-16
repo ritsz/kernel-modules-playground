@@ -53,6 +53,11 @@ static int __init procexample_module_init(void)
         if(example_dir == NULL)
                 return -ENOMEM;
 
+	/* Another method of doing this would be to use create_proc_entry as:
+	 * 	first_file = proc_create_entry("first", 0644, example_dir);
+	 * 	first_file->proc_fops = &fops;
+	 */
+
 	first_file = proc_create_data("first", 0644, example_dir, &fops, NULL);
         if(first_file == NULL) {
 		remove_proc_entry("example", NULL);
