@@ -21,6 +21,16 @@ unsigned int hook_func(unsigned int hooknum, struct sk_buff **skb,
 {
 	pr_info("Packet Going out\n");
 	return NF_ACCEPT;
+	/*
+	  	Responses from hook functions.
+		#define NF_DROP 0
+		#define NF_ACCEPT 1
+		#define NF_STOLEN 2
+		#define NF_QUEUE 3
+		#define NF_REPEAT 4
+		#define NF_STOP 5
+		#define NF_MAX_VERDICT NF_STOP
+	*/
 }
 
 int init_module()
@@ -28,10 +38,15 @@ int init_module()
 	nfho.hook = hook_func;          //function to call when conditions below met
   	nfho.hooknum = 3;            	//called right when packet going out of device
 	 /* IP Hooks
-	#define NF_IP_PRE_ROUTING       0       // If the packet is destined for this box.
-	#define NF_IP_LOCAL_IN          1	// If the packet is destined for another interface.
-	#define NF_IP_FORWARD           2	// Packets coming from a local process.
-	#define NF_IP_LOCAL_OUT         3	// Packets about to hit the wire. 
+	//After promisc drops, checksum checks.
+	#define NF_IP_PRE_ROUTING       0       
+	// If the packet is destined for this box.
+	#define NF_IP_LOCAL_IN          1	
+	// If the packet is destined for another interface.
+	#define NF_IP_FORWARD           2	
+	// Packets coming from a local process.
+	#define NF_IP_LOCAL_OUT         3	
+	// Packets about to hit the wire. 
 	#define NF_IP_POST_ROUTING      4
 	#define NF_IP_NUMHOOKS          5
 	*/
