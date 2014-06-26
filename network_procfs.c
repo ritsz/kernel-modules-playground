@@ -30,6 +30,7 @@ void free(struct network_list *node) {
 	if (node == NULL)
 		return;
 	pr_info("free node for %s\n", node->addr);
+	/* Recursively free the linked list */
 	free(node->next);
 	kfree(node);
 }
@@ -72,13 +73,19 @@ unsigned int hook_func(const struct nf_hook_ops *ops, struct sk_buff *skb,
 {
         sock_buff = skb;
         ip_header = (struct iphdr *)skb_network_header(sock_buff);    //grab network header using accessor
-        if(!sock_buff) {
+        
+	if(!sock_buff) {
 		return NF_ACCEPT;
 	}
+	
 	char source[16];
 	snprintf(source, 16, "%pI4", &ip_header->saddr); 
-       
-	add_to_list(source);
+      	/*If the source address isn't a loopback interface, log the data in the
+	 * list.
+	 */
+	if (source[0] != '1' || source[1] != '2' || source[2] != '7')
+		add_to_list(source);
+	
 	return NF_ACCEPT;
 }
 
@@ -90,7 +97,6 @@ static void *my_start(struct seq_file *s, loff_t *pos)
 
 static void *my_next(struct seq_file *s, void *v, loff_t *pos)
 {
-	pr_info("NEXT\n");
 	struct network_list *ptr = ((struct network_list *) v)->next;
 	if (!ptr)
 		return NULL;
