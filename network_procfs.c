@@ -38,7 +38,7 @@ void add_to_list(char *saddr){
 
 	struct network_list *temp = root;
 	int added = 0;
-	
+
 	/* Best to use spinlocks when modifying global data structures that
 	 * could get modified simultaneously
 	 */
@@ -49,7 +49,6 @@ void add_to_list(char *saddr){
 			temp = temp->next;
 		} else {
 			//else if match found
-			pr_info("%s already present", saddr);
 			atomic_inc(&(temp->count));
 			added = 1;
 			break;
@@ -59,9 +58,9 @@ void add_to_list(char *saddr){
 	if (!added) {
 		pr_info("New node for source %s", saddr);
 		tail->next =  kmalloc(sizeof(struct network_list), GFP_KERNEL);
+		tail = tail->next;
 		atomic_set(&(tail->count), 1);
 		strcpy(tail->addr, saddr);
-		tail = tail->next;
 		tail->next = NULL;
 	}
 	spin_unlock(&net_lock);
@@ -78,10 +77,58 @@ unsigned int hook_func(const struct nf_hook_ops *ops, struct sk_buff *skb,
 	}
 	char source[16];
 	snprintf(source, 16, "%pI4", &ip_header->saddr); 
-	pr_info("SOURCE ADDRESS %pI4\n", &ip_header->saddr);
-        add_to_list(source);
+       
+	add_to_list(source);
 	return NF_ACCEPT;
 }
+
+static void *my_start(struct seq_file *s, loff_t *pos)
+{
+	pr_info("START\n");
+	return root->next;
+}
+
+static void *my_next(struct seq_file *s, void *v, loff_t *pos)
+{
+	pr_info("NEXT\n");
+	struct network_list *ptr = ((struct network_list *) v)->next;
+	if (!ptr)
+		return NULL;
+	else
+		return ptr;
+}
+
+static void my_stop(struct seq_file *s, void *v)
+{
+	pr_info("STOP\n");
+}
+
+static int my_show(struct seq_file *s, void *v)
+{
+	struct network_list *ptr = ((struct network_list *) v);
+	seq_printf(s, "%s\t:\t%d\n", ptr->addr, ptr->count);
+        return 0;
+}
+
+static struct seq_operations swaps_op = {
+	.start =        my_start,
+	.next =         my_next,
+	.stop =        	my_stop,
+	.show =         my_show
+};
+
+static int my_open(struct inode *inode, struct file *file)
+{
+	return seq_open(file, &swaps_op);
+}
+
+static struct file_operations fops = {
+	.owner = THIS_MODULE,
+	.open = my_open,
+	.read = seq_read,
+	.llseek = seq_lseek,
+	.release = seq_release,
+};
 
 static int init_packet(void)
 {
@@ -97,7 +144,7 @@ static int init_packet(void)
         nfho.priority = NF_IP_PRI_FIRST;        //set to highest priority over all other hook functions
         nf_register_hook(&nfho);                //register hook
 	
-	net_file = proc_create_data("seq_proc", 0644, NULL, &fops, NULL);
+	net_file = proc_create_data("net_proc", 0644, NULL, &fops, NULL);
 	if(net_file == NULL) {
 		return -ENOMEM;
 	}
@@ -107,6 +154,7 @@ static int init_packet(void)
 
 void cleanup_packet(void)
 {
+	remove_proc_entry("net_proc", NULL);
 	free(root);
         nf_unregister_hook(&nfho);
 }
