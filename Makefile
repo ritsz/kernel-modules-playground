@@ -18,4 +18,7 @@ default:
  
 clean:
 	${MAKE} -C ${KERNEL_SOURCE} SUBDIRS=${PWD} clean
+
+install:
+	${MAKE} -C ${KERNEL_SOURCE} M=${PWD} INSTALL_MOD_PATH=${INSTALL_ROOT} modules_install
 endif
