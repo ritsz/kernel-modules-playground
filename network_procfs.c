@@ -12,9 +12,9 @@
 #include <asm/uaccess.h>
 #include <linux/seq_file.h>
 
-static struct nf_hook_ops nfho;   //net filter hook option struct
+static struct nf_hook_ops nfho;   
 struct sk_buff *sock_buff;
-struct iphdr *ip_header;            //ip header struct
+struct iphdr *ip_header;
 
 struct network_list {	
 	char addr[16];
