@@ -10,14 +10,16 @@
 #include <linux/spinlock.h>
 #include <linux/proc_fs.h>
 #include <asm/uaccess.h>
+#include <linux/seq_file.h>
 
 static struct nf_hook_ops nfho;   //net filter hook option struct
 struct sk_buff *sock_buff;
 struct iphdr *ip_header;            //ip header struct
 
-struct network_list {
-	atomic_t count;
+struct network_list {	
 	char addr[16];
+	atomic_t count;
+	atomic64_t data_used;
 	struct network_list *next;
 };
 
@@ -35,7 +37,7 @@ void free(struct network_list *node) {
 	kfree(node);
 }
 
-void add_to_list(char *saddr){
+void add_to_list(char *saddr, int data_size){
 
 	struct network_list *temp = root;
 	int added = 0;
@@ -51,16 +53,18 @@ void add_to_list(char *saddr){
 		} else {
 			//else if match found
 			atomic_inc(&(temp->count));
+			atomic64_add(data_size, &(temp->data_used));
 			added = 1;
 			break;
 		}
 	}
 	/* If packet not added to list */
 	if (!added) {
-		pr_info("New node for source %s", saddr);
+		pr_info("New node for source %s\n", saddr);
 		tail->next =  kmalloc(sizeof(struct network_list), GFP_KERNEL);
 		tail = tail->next;
 		atomic_set(&(tail->count), 1);
+		atomic64_set(&(tail->data_used), data_size);
 		strcpy(tail->addr, saddr);
 		tail->next = NULL;
 	}
@@ -70,21 +74,21 @@ void add_to_list(char *saddr){
 unsigned int hook_func(const struct nf_hook_ops *ops, struct sk_buff *skb,
 		const struct net_device *in, const struct net_device *out, 
 		int (*okfn)(struct sk_buff *))
-{
-        sock_buff = skb;
+{ 
+	char source[16];
+	sock_buff = skb;
         ip_header = (struct iphdr *)skb_network_header(sock_buff);    //grab network header using accessor
         
 	if(!sock_buff) {
 		return NF_ACCEPT;
 	}
 	
-	char source[16];
 	snprintf(source, 16, "%pI4", &ip_header->saddr); 
       	/*If the source address isn't a loopback interface, log the data in the
 	 * list.
 	 */
 	if (source[0] != '1' || source[1] != '2' || source[2] != '7')
-		add_to_list(source);
+		add_to_list(source, ip_header->tot_len);
 	
 	return NF_ACCEPT;
 }
@@ -112,7 +116,8 @@ static void my_stop(struct seq_file *s, void *v)
 static int my_show(struct seq_file *s, void *v)
 {
 	struct network_list *ptr = ((struct network_list *) v);
-	seq_printf(s, "%s\t:\t%d\n", ptr->addr, ptr->count);
+	seq_printf(s, "%s\t:\t%d Packets\t:\t%ld KB\n", ptr->addr, atomic_read(&(ptr->count)),
+			atomic64_read(&(ptr->data_used))/1024 );
         return 0;
 }
 
@@ -140,6 +145,7 @@ static int init_packet(void)
 {
 	root =  kmalloc(sizeof(struct network_list), GFP_KERNEL);
 	atomic_set(&(root->count), 0);
+	atomic64_set(&(root->data_used), 0);
 	root->next = NULL;
 	strcpy(root->addr, "");
 	tail = root;
