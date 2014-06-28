@@ -88,7 +88,7 @@ unsigned int hook_func(const struct nf_hook_ops *ops, struct sk_buff *skb,
 	 * list. sk_buff::data_len contains the data size that has been
 	 * transmitted in that buffer. Tested using ping -s 1024 facebook.com 
 	 */
-	if (source[0] != '1' || source[1] != '2' || source[2] != '7')
+	if (source[0] == '0' || source[0] != '1' || source[1] != '2' || source[2] != '7')
 		add_to_list(source, sock_buff->data_len);
 	
 	return NF_ACCEPT;
