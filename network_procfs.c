@@ -84,11 +84,12 @@ unsigned int hook_func(const struct nf_hook_ops *ops, struct sk_buff *skb,
 	}
 	
 	snprintf(source, 16, "%pI4", &ip_header->saddr); 
-      	/*If the source address isn't a loopback interface, log the data in the
-	 * list.
+      	/* If the source address isn't a loopback interface, log the data in the
+	 * list. sk_buff::data_len contains the data size that has been
+	 * transmitted in that buffer. Tested using ping -s 1024 facebook.com 
 	 */
 	if (source[0] != '1' || source[1] != '2' || source[2] != '7')
-		add_to_list(source, ip_header->tot_len);
+		add_to_list(source, sock_buff->data_len);
 	
 	return NF_ACCEPT;
 }
@@ -174,3 +175,6 @@ void cleanup_packet(void)
 module_init(init_packet);
 module_exit(cleanup_packet);
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("ritsz");
+MODULE_DESCRIPTION("A module that promiscuously listens to packets destined to \
+		local device and logs their metadata");
