@@ -132,11 +132,29 @@ static struct seq_operations swaps_op = {
 static int my_open(struct inode *inode, struct file *file)
 {
 	return seq_open(file, &swaps_op);
+} 
+
+static int my_write(struct file *f, const char __user *buf,
+		                    size_t len, loff_t *off)
+{
+	spin_lock(&net_lock);
+	pr_info("TRY TO CLEAR LIST\n");
+	struct network_list *temp = root;
+	
+	while(temp != NULL) {
+		atomic_set(&(temp->count), 0);
+		atomic64_set(&(temp->data_used), 0);
+		temp = temp->next;
+	}
+
+	spin_unlock(&net_lock);
+	return len;
 }
 
 static struct file_operations fops = {
 	.owner = THIS_MODULE,
 	.open = my_open,
+	.write = my_write,
 	.read = seq_read,
 	.llseek = seq_lseek,
 	.release = seq_release,
