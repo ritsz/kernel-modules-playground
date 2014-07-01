@@ -23,7 +23,12 @@ int init_module(void)
     	else{
         	fs = get_fs();
         	set_fs(get_ds());
-        	//vfs_read(f, buf, buf_size, &offset);
+        	/* This is how vfs functions call the underlying read/ write
+		 * mechanism, using indirections. the read/write functions are
+		 * file system specfic. The pointer is linked to the appropriate
+		 * read/ write functions by the kernel and then calling vfs_read
+		 * will just call that function as so
+		 */
 		f->f_op->read(f, buf, buf_size, &f->f_pos);
         	set_fs(fs);
         	pr_info("%s\n",buf);
