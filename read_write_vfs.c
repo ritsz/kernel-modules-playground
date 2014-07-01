@@ -21,7 +21,22 @@ int init_module(void)
     	if(f == NULL)
         	pr_err("filp_open error!!.\n");
     	else{
-        	fs = get_fs();
+        	/*
+ 		 * The fs value determines whether argument validity checking should be
+ 		 * performed or not.  If get_fs() == USER_DS, checking is performed, with
+  		 * get_fs() == KERNEL_DS, checking is bypassed.
+ 		 *
+ 		 * For historical reasons, these macros are grossly misnamed.
+    			#define MAKE_MM_SEG(s)  ((mm_segment_t) { (s) })
+
+    			#define KERNEL_DS       MAKE_MM_SEG(-1UL)
+    			#define USER_DS         MAKE_MM_SEG(TASK_SIZE_MAX)
+
+    			#define get_ds()        (KERNEL_DS)
+    			#define get_fs()        (current_thread_info()->addr_limit)
+    			#define set_fs(x)       (current_thread_info()->addr_limit = (x))
+		 */
+		fs = get_fs();
         	set_fs(get_ds());
         	/* This is how vfs functions call the underlying read/ write
 		 * mechanism, using indirections. the read/write functions are
