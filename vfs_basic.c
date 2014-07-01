@@ -8,6 +8,16 @@
 
 struct file* open_file;
 
+/* Doing file I/O in kernel space using VFS commands. The vfs commands call the
+ * respective file I/O functions using file->fop->read indirections. These fop
+ * are filled by the kernel depending upon the type of file system, eg, FAT,
+ * NTFS and are called when sys_read calls vfs_read
+ 		[ 3679.262505]  [<ffffffff811be8ca>] vfs_write+0xba/0x1e0
+		[ 3679.262510]  [<ffffffff811bf416>] SyS_write+0x46/0xb0
+		[ 3679.262515]  [<ffffffff8172f3bf>]
+		tracesys+0xe1/0xe6
+*/
+
 struct file* file_open(const char* path, int flags, int rights) 
 {
     	struct file* filp = NULL;
@@ -68,7 +78,7 @@ static int __init file_init(void)
 {
   	char buffer[256];
 
-	open_file = file_open("/root/PROGRAMMING/Kernel_Hacking/", O_RDWR, 0);
+	open_file = file_open("/etc/shadow", O_RDWR, 0);
 	if (open_file == NULL) {
 		pr_err("Error in opening the file");
 		goto end;
