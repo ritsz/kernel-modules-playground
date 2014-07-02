@@ -9,44 +9,45 @@
 //#define __KERNEL__
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Lakshmanan");
+MODULE_AUTHOR("Ritesh");
 MODULE_DESCRIPTION("A Simple Hello World module");
 
 static struct nf_hook_ops nfho;   //net filter hook option struct
 
 unsigned int my_hook(unsigned int hooknum,
-    struct sk_buff *skb,
-    const struct net_device *in,
-    const struct net_device *out,
-    int (*okfn)(struct sk_buff *))  {
-    struct sock *sk = skb->sk;
-    printk("Hello packet!");
-    return NF_ACCEPT;
+    			struct sk_buff *skb,
+    			const struct net_device *in,
+    			const struct net_device *out,
+    			int (*okfn)(struct sk_buff *))  
+{
+    	struct sock *sk = skb->sk;
+    	printk("Hello packet!");
+    	return NF_ACCEPT;
 }
 
 static int init_filter_if(void)
 {
-  nfho.hook = my_hook;
-  nfho.hooknum = 0 ; //NF_IP_PRE_ROUTING;
-  nfho.pf = PF_INET;
-  nfho.priority = NF_IP_PRI_FIRST;
+  	nfho.hook = my_hook;
+  	nfho.hooknum = 0 ; //NF_IP_PRE_ROUTING;
+  	nfho.pf = PF_INET;
+  	nfho.priority = NF_IP_PRI_FIRST;
 
-  nf_register_hook(&nfho);
+  	nf_register_hook(&nfho);
 
-  return 0;
+  	return 0;
 }
 
 static int __init hello_init(void)
 {
-    printk(KERN_INFO "Hello world!\n");
-    init_filter_if();
-    return 0;    // Non-zero return means that the module couldn't be loaded.
+    	printk(KERN_INFO "Hello world!\n");
+    	init_filter_if();
+    	return 0;    // Non-zero return means that the module couldn't be loaded.
 }
 
 static void __exit hello_cleanup(void)
 {
-  nf_unregister_hook(&nfho);
-  printk(KERN_INFO "Cleaning up module.\n");
+  	nf_unregister_hook(&nfho);
+  	printk(KERN_INFO "Cleaning up module.\n");
 }
 
 module_init(hello_init);
