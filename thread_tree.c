@@ -4,7 +4,9 @@
 #include <linux/sched.h>  // for task_struct
 #include <linux/kthread.h>  // for threads
 #include <asm/current.h>
-//#include <asm/page.h>
+#include <linux/fs.h>
+#include <linux/rcupdate.h>
+#include <linux/fdtable.h>
 
 MODULE_LICENSE("Dual BSD/GPL");
 
@@ -62,7 +64,8 @@ int __init hello_init(void)
 		printk("Check :: %d, %s\n", _task->pid, _task->comm);
 
 		printk("Process %d : %s has %d threads\n", task->pid, task->comm, get_nr_threads(task));
-		printk("%uKB Kernel Stack size, %lu time, %llu wait, %llu last run and %llu last queued\n", THREAD_SIZE/1024, task->sched_info.pcount, task->sched_info.run_delay,
+		printk("%uKB Kernel Stack size, %lu time, %llu wait, %llu last run and %llu last queued\n", 
+				THREAD_SIZE/1024, task->sched_info.pcount, task->sched_info.run_delay,
 	 			task->sched_info.last_arrival, task->sched_info.last_queued);
 		printk("%lu\n",task->rt.timeout);
 
@@ -73,6 +76,16 @@ int __init hello_init(void)
 		}
 		else {
 			printk("USER THREAD\n\n");
+			struct files_struct *files = task->files;
+			struct file *fd_array = files->fd_array[0];
+			struct file *fd_list = rcu_dereference_raw(files->fdt->fd[0]);
+
+			if (fd_array != NULL && fd_list != NULL) {
+				unsigned long inode = fd_array->f_inode->i_ino;
+				pr_info("1> FD inode : %lu\n", inode);
+				unsigned long inode2 = fd_list->f_inode->i_ino;
+				pr_info("2> FD inode : %lu\n", inode2);
+			}
 		}
 		
 
