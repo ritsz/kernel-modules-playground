@@ -73,9 +73,9 @@ static ssize_t b_store(struct kobject *kobj, struct kobj_attribute *attr,
 }
 
 static struct kobj_attribute baz_attribute =
-        __ATTR(baz, 0666, b_show, b_store);
+        __ATTR(baz, 0664, b_show, b_store);
 static struct kobj_attribute bar_attribute =
-        __ATTR(bar, 0666, b_show, b_store);
+        __ATTR(bar, 0664, b_show, b_store);
 
 
 /*
