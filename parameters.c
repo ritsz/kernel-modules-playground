@@ -21,6 +21,7 @@ static int arr_argc = 0;
  * for exposing parameters in sysfs (if non-zero) at a later stage.
  */
 
+
 module_param(myshort, short, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
 MODULE_PARM_DESC(myshort, "A short integer");
 module_param(myint, int, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
@@ -29,6 +30,7 @@ module_param(mylong, long, S_IRUSR);
 MODULE_PARM_DESC(mylong, "A long integer");
 module_param(mystring, charp, 0000);
 MODULE_PARM_DESC(mystring, "A character string");
+
 
 /*
  * module_param_array(name, type, num, perm);
