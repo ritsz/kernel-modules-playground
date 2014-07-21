@@ -16,6 +16,7 @@
 static struct nf_hook_ops nfho;   
 struct sk_buff *sock_buff;
 struct iphdr *ip_header;
+struct kmem_cache *packet_node_cache;
 
 struct network_list {	
 	char addr[16];
@@ -35,7 +36,7 @@ void free(struct network_list *node) {
 	pr_info("free node for %s\n", node->addr);
 	/* Recursively free the linked list */
 	free(node->next);
-	kfree(node);
+	kmem_cache_free(packet_node_cache, node);
 }
 
 void add_to_list(char *saddr, int data_size){
@@ -63,7 +64,7 @@ void add_to_list(char *saddr, int data_size){
 	if (!added) {
 		pr_info("%pS\n", __builtin_return_address(1));
 		pr_info("New node for source %s\n", saddr);
-		tail->next =  kmalloc(sizeof(struct network_list), GFP_KERNEL);
+		tail->next =  (struct network_list *) kmem_cache_alloc(packet_node_cache, GFP_KERNEL);
 		tail = tail->next;
 		atomic_set(&(tail->count), 1);
 		atomic64_set(&(tail->data_used), data_size);
@@ -164,8 +165,11 @@ static struct file_operations fops = {
 
 static int init_packet(void)
 {
+	packet_node_cache = kmem_cache_create("kmem_packet_cache", sizeof(struct
+				network_list), 0, SLAB_HWCACHE_ALIGN, NULL);
+
 	pr_info("%pS\n", __builtin_return_address(1));
-	root =  kmalloc(sizeof(struct network_list), GFP_KERNEL);
+	root =  (struct network_list *)kmem_cache_alloc(packet_node_cache, GFP_KERNEL);
 	atomic_set(&(root->count), 0);
 	atomic64_set(&(root->data_used), 0);
 	root->next = NULL;
@@ -190,6 +194,7 @@ void cleanup_packet(void)
 {
 	remove_proc_entry("net_proc", NULL);
 	free(root);
+	kmem_cache_destroy(packet_node_cache);
         nf_unregister_hook(&nfho);
 }
 
