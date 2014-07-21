@@ -61,6 +61,7 @@ void add_to_list(char *saddr, int data_size){
 	}
 	/* If packet not added to list */
 	if (!added) {
+		pr_info("%pS\n", __builtin_return_address(1));
 		pr_info("New node for source %s\n", saddr);
 		tail->next =  kmalloc(sizeof(struct network_list), GFP_KERNEL);
 		tail = tail->next;
@@ -164,6 +165,7 @@ static struct file_operations fops = {
 
 static int init_packet(void)
 {
+	pr_info("%pS\n", __builtin_return_address(1));
 	root =  kmalloc(sizeof(struct network_list), GFP_KERNEL);
 	atomic_set(&(root->count), 0);
 	atomic64_set(&(root->data_used), 0);
