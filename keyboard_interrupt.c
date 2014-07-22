@@ -4,37 +4,46 @@
 #include <asm/io.h>
 
 /* This function services keyboard interrupts */
-irq_handler_t irq_handler (int irq, void *dev_id, struct pt_regs *regs) {
-  static unsigned char scancode;
+irq_handler_t irq_handler (int irq, void *dev_id, struct pt_regs *regs) 
+{
+	static unsigned char scancode;
+	static unsigned char status;
+  	/*
+    		Read keyboard status
+  	*/
+	status = inb(0x64);
+  	scancode = inb (0x60);
+	
+	if ((scancode & 0x80)) {
+		pr_info("KEY RELEASED\n");
+	} else {
+		pr_info("KEY PRESSED\n");
+	}
+	
+  	if ((scancode == 0x01) || (scancode == 0x81)) {
+      		printk ("You pressed Esc !\n");
+  	}
 
-  /*
-    Read keyboard status
-  */
-  scancode = inb (0x60);
-
-  if ((scancode == 0x01) || (scancode == 0x81)) {
-      printk ("You pressed Esc !\n");
-  }
-
-  return (irq_handler_t) IRQ_HANDLED;
+  	return (irq_handler_t) IRQ_HANDLED;
 }
 
 /* Initialize the module and Register the IRQ handler */
 static int __init keybrd_int_register(void)
 {
-  int result;
-  /* Request IRQ 1, the keyboard IRQ */    
-  result = request_irq (1, (irq_handler_t) irq_handler, IRQF_SHARED, "keyboard_stats_irq", (void *)(irq_handler));
+  	int result;
+  	/* Request IRQ 1, the keyboard IRQ */    
+  	result = request_irq (1, (irq_handler_t) irq_handler, IRQF_SHARED, 
+			"keyboard_stats_irq", (void *)(irq_handler));
 
-  if (result)
-    printk(KERN_INFO "can't get shared interrupt for keyboard\n");
+  	if (result)
+    		printk(KERN_INFO "can't get shared interrupt for keyboard\n");
 
-  return result;
+  	return result;
 }
 
 /* Remove the interrupt handler */
 static void __exit keybrd_int_unregister(void) {
-  free_irq(1, (void *)(irq_handler)); /* i can't pass NULL, this is a shared interrupt handler! */
+  	free_irq(1, (void *)(irq_handler)); /* i can't pass NULL, this is a shared interrupt handler! */
 }
 
 MODULE_LICENSE ("GPL");
