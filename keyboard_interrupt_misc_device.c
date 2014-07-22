@@ -12,14 +12,15 @@
 
 static int irq = 1;
 module_param(irq, int, 0644);
-char *kbuf;
-int keys = 0;
+char *kbuf;	/* Buffer for key strokes */
+int keys = 0;  /* How many key strokes the userspace program wants*/
 
 struct my_device {
         int data_port;
         int status_port;
 } device;
 
+/* Enumeration of DATA status */
 enum intr_cause {
         NO_EVENT,
         INCOMING_DATA,
@@ -27,11 +28,14 @@ enum intr_cause {
 };
 
 /* The rmmod can be sent asynchronously, while the read is happening.
- * We wait for completion of read call when rmmod is called.
+ * We wait for completion of read call when rmmod is called. This is achieved by
+ * using a completion structure. 
  */
 DECLARE_COMPLETION(kbd_complete);
+/* Wait queue on which the task waits while sufficient keys are logged */
 DECLARE_WAIT_QUEUE_HEAD(key_wait);
-int intr_registered  = 0; /* Check flag: whether intr is being handled */
+int intr_registered  = 0; /* Check flag: whether intr is being handled  Used in
+			   * case the file was never opened and we want to rmmod*/
 
 
 static int testirq_read_intr_cause_register(struct my_device *device)
@@ -97,6 +101,9 @@ static int keylog_open(struct inode *inodep, struct file *filp) {
         } else {
                 pr_notice("interrupt handler registered.\n");
         }
+	/* IRQ was registered, thus incremenet the count and initialize the
+	 * completion structure
+	 */
         intr_registered++;
         init_completion(&kbd_complete);
         return 0;
@@ -105,6 +112,9 @@ static int keylog_open(struct inode *inodep, struct file *filp) {
 static int keylog_close(struct inode *inodep, struct file *filp) {
         pr_notice("Freeing interrupt handler on IRQ %d\n", irq);
         free_irq(irq, &device);
+	/* IRQ is freed, thus decrement the count and mark the completion
+	 * structure as complete.
+	 */
         intr_registered--;
         complete(&kbd_complete);
         return 0;
@@ -161,6 +171,9 @@ static void __exit keylog_driver_exit(void)
 {
         /* If atleast one  interrupts is handled*/
         if (intr_registered)
+		/* If interrupt is registered, wait for it to complete before
+		 * removing the char device.
+		 */
                 wait_for_completion(&kbd_complete);
         misc_deregister(&keylog_dev);
         pr_notice("keylog device driver unregistered.\n");
