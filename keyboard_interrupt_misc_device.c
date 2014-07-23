@@ -185,7 +185,3 @@ module_exit(keylog_driver_exit);
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("ritsz");
 MODULE_DESCRIPTION("Keylogger written into /dev/keylog");
-
-
-
-
