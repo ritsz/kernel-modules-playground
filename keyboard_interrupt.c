@@ -21,7 +21,7 @@ irq_handler_t irq_handler (int irq, void *dev_id, struct pt_regs *regs)
 	}
 	
   	if ((scancode == 0x01) || (scancode == 0x81)) {
-      		printk ("You pressed Esc !\n");
+      		pr_info("You pressed Esc !\n");
   	}
 
   	return (irq_handler_t) IRQ_HANDLED;
@@ -36,7 +36,7 @@ static int __init keybrd_int_register(void)
 			"keyboard_stats_irq", (void *)(irq_handler));
 
   	if (result)
-    		printk(KERN_INFO "can't get shared interrupt for keyboard\n");
+    		pr_info("can't get shared interrupt for keyboard\n");
 
   	return result;
 }
