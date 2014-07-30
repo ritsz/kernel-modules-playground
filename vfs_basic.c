@@ -89,7 +89,7 @@ static int __init file_init(void)
 	file_read(open_file, 0, buffer, 256);
 	pr_info("%s", buffer);
 
-	end:
+    end:
   	return 0;
 }
 
