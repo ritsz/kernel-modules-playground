@@ -11,7 +11,6 @@ ifneq (${KERNELRELEASE},)
 #Use make default obj-m=<module_name.o>
 else
 	KERNEL_SOURCE := /lib/modules/$(shell uname -r)/build
-	KERNEL_SOURCE2 := /home/ritsz/linux/
 	PWD := $(shell pwd)
 default:
 	${MAKE} -C ${KERNEL_SOURCE} SUBDIRS=${PWD} modules
