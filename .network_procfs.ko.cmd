@@ -1,1 +1,0 @@
-cmd_/root/kernel_modules_hacking/network_procfs.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.11.0-23-generic/scripts/module-common.lds --build-id  -o /root/kernel_modules_hacking/network_procfs.ko /root/kernel_modules_hacking/network_procfs.o /root/kernel_modules_hacking/network_procfs.mod.o
