@@ -39,7 +39,7 @@ void free(struct network_list *node) {
 	kmem_cache_free(packet_node_cache, node);
 }
 
-void add_to_list(char *saddr, int data_size){
+void add_to_list_network(char *saddr, int data_size){
 
 	struct network_list *temp = root;
 	int added = 0;
@@ -73,6 +73,7 @@ void add_to_list(char *saddr, int data_size){
 	}
 	spin_unlock(&net_lock);
 }
+EXPORT_SYMBOL(add_to_list_network);
 
 unsigned int hook_func(const struct nf_hook_ops *ops, struct sk_buff *skb,
 		const struct net_device *in, const struct net_device *out, 
@@ -93,7 +94,7 @@ unsigned int hook_func(const struct nf_hook_ops *ops, struct sk_buff *skb,
 	 */
 	pr_info("%s has %u data\n", source, sock_buff->data_len);
 	//if (source[0] == '0' || source[0] != '1' || source[1] != '2' || source[2] != '7')
-	add_to_list(source, sock_buff->data_len);
+	add_to_list_network(source, sock_buff->data_len);
 	
 	return NF_ACCEPT;
 }
