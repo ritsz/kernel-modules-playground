@@ -9,6 +9,9 @@
  * else it is keyboard data.
  */
 
+/* UNSTABLE. VERY. Need to fix.
+ */
+
 static int mouse_init(void)
 {
 	int loops_for_mouse = 0;
