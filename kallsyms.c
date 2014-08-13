@@ -4,14 +4,18 @@
 
 typedef int (*function)(void);
 
+/* A hack that allows you to call functions in the symbol table of the kernel
+ * using symbol lookup function.
+ */
+
 static int __init init_kallsyms(void) {
 	char *sym_name = "thread_fn";
-    	unsigned long sym_addr = kallsyms_lookup_name(sym_name);
+    	unsigned long symbol_addr = kallsyms_lookup_name(sym_name);
     	// int* rday_3 = sym_addr;
     	// printk("%d, %lu\n", *rday_3, sym_addr);
     	if (sym_addr) {
-    	    function ca = (function)sym_addr;
-    	    ca();
+    	    function func_call = (function)symbol_addr;
+    	    func_call();
     	} else {
     	    printk(KERN_ERR"Unresolved Symbol %s", sym_name);
     	}
