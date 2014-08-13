@@ -54,4 +54,4 @@ static void mouse_exit(void)
 module_init(mouse_init);
 module_exit(mouse_exit);
 MODULE_LICENSE("GPL");
-
+MODULE_AUTHOR("RITESH RANJAN");
