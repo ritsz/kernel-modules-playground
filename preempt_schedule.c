@@ -20,12 +20,12 @@ static int my_func(void)
 	pr_info("PREEMPT ENABLE\n");
 
 	pr_info("SPINLOCK\n");
-	spin_lock(&my_lock);
+	spin_lock_irq(&my_lock);
 	pr_info("SCHEDULING OUT 2\n");
 	schedule();
 	pr_info("SCHEDULING IN 2\n");
 	pr_info("UNLOCK\n");
-	spin_unlock(&my_lock);
+	spin_unlock_irq(&my_lock);
 
 	return 0;
 }
