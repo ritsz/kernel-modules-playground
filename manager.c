@@ -14,10 +14,12 @@ int main(void)
 	char * c = "/dev/mem";
       	int device = open(c, O_RDWR);
       	printf("%d\n",device);
-      	if ( write(device,"WWWWW",5) < 0)
+      	if ( write(device,"WWWWW",5) < 0) {
 		perror("write");
+		return -1;
+	}
      
-      	//ioctl(device, IOCTL_FIX_TABLE);
+      	ioctl(device, IOCTL_FIX_TABLE);
 	char x[30];
      	int ret;
 	if ((ret = read(device, x, 30)) < 0) {
