@@ -34,25 +34,17 @@ make --quiet default obj-m=$file
 if [[ $? -eq 0 ]]; then
 	
 	#If make succedded. 
-	timestamp="<$(($(date +%N)/1000000))>"
-	echo "$timestamp : Make $file was successful"
+	echo "Make $file was successful"
 	sudo dmesg --clear
 
-	timestamp="<$(($(date +%N)/1000000))>"
-	echo "$timestamp : Loading $file"
+	echo "Loading $file"
 	sudo insmod ./$module
 	sleep 1
 
-	timestamp="<$(($(date +%N)/1000000))>"
 	
 else
-	timestamp="<$(($(date +%N)/1000000))>"
 	echo "
-	$timestamp : ERROR	:	Make of $file did not succed. Exiting
+	 ERROR	:	Make of $file did not succed. Exiting
 		"
 	exit
 fi
-
-	
-
-
