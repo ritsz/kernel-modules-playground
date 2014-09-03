@@ -24,6 +24,7 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
     	nlh = (struct nlmsghdr *)skb->data;
     	printk(KERN_INFO "Netlink received msg payload: %s\n", (char *)nlmsg_data(nlh));
     	pid = nlh->nlmsg_pid; /*pid of sending process */
+	pr_info("Sending data back to task no. %d\n", pid);
 
     	skb_out = nlmsg_new(msg_size, 0);
 
@@ -39,7 +40,7 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
     	res = nlmsg_unicast(nl_sk, skb_out, pid);
 
     	if (res < 0)
-        	printk(KERN_INFO "Error while sending bak to user\n");
+        	printk(KERN_INFO "Error while sending back to user\n");
 }
 
 struct netlink_kernel_cfg netlink_cfg = {
