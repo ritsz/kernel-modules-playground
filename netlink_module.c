@@ -23,7 +23,7 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
 
     	nlh = (struct nlmsghdr *)skb->data;
     	printk(KERN_INFO "Netlink received msg payload: %s\n", (char *)nlmsg_data(nlh));
-    	pid = nlh->nlmsg_pid; /*pid of sending process */
+    	pid = nlh->nlmsg_pid; /*pid of sending process*/
 	pr_info("Sending data back to task no. %d\n", pid);
 
     	skb_out = nlmsg_new(msg_size, 0);
@@ -34,7 +34,7 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
 
     	}
     	nlh = nlmsg_put(skb_out, 0, 0, NLMSG_DONE, msg_size, 0);
-    	NETLINK_CB(skb_out).dst_group = 0; /* not in mcast group */
+    	NETLINK_CB(skb_out).dst_group = 0; /*not in mcast group*/
     	strncpy(nlmsg_data(nlh), msg, msg_size);
 
     	res = nlmsg_unicast(nl_sk, skb_out, pid);
