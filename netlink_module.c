@@ -4,6 +4,7 @@
 #include <linux/skbuff.h>
 
 #define NETLINK_USER 31
+#define MULTICAST_GROUP 1
 
 struct sock *nl_sk = NULL;
 
@@ -35,12 +36,12 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
     	}
     	nlh = nlmsg_put(skb_out, 0, 0, NLMSG_DONE, msg_size, 0);
     	NETLINK_CB(skb_out).dst_group = 0; /*not in mcast group*/
-    	strncpy(nlmsg_data(nlh), msg, msg_size);
+	strncpy(nlmsg_data(nlh), msg, msg_size);
 
     	res = nlmsg_unicast(nl_sk, skb_out, pid);
 
     	if (res < 0)
-        	printk(KERN_INFO "Error while sending back to user\n");
+        	printk(KERN_INFO "Error while sending back to user : %d\n", res);
 }
 
 struct netlink_kernel_cfg netlink_cfg = {
