@@ -10,6 +10,8 @@ static int my_cgroup_init (void)
 {
 	struct task_struct *task = current;
 	struct task_struct *iterator;
+	struct cgroup *my_cgroup;
+	struct cgrp_cset_link* iter;
 	int count = 0;
 	int curr_pid = task->pid;
 
@@ -18,6 +20,7 @@ static int my_cgroup_init (void)
 
 	my_css_set = task->cgroups;
 	
+	pr_info("The reference count of css_set is %d\n", atomic_read(&(my_css_set->refcount)));
 
 	list_for_each_entry(iterator, &(my_css_set->tasks), cg_list) {
 		pr_info("\t[PID %d] Process : %s part of the cgroup\n", iterator->pid, iterator->comm);
@@ -25,6 +28,15 @@ static int my_cgroup_init (void)
 		if (count > 10)
 			break;
 	}
+	count = 0;
+
+	my_cgroup = my_css_set->subsys[0]->cgroup;
+	if (!my_cgroup) {
+		pr_err("No cgroup found\n");
+		return -ENOMEM;
+	}
+
+	pr_info("The reference count of cgroup is %d\n", atomic_read(&(my_cgroup->refcnt)));
 
 	return 0;
 }
