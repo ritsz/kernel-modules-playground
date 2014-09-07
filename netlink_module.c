@@ -4,7 +4,7 @@
 #include <linux/skbuff.h>
 
 #define NETLINK_USER 31
-#define MULTICAST_GROUP 1
+#define MULTICAST_GROUP 0x21
 
 struct sock *nl_sk = NULL;
 
@@ -34,11 +34,16 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
         	return;
 
     	}
-    	nlh = nlmsg_put(skb_out, 0, 0, NLMSG_DONE, msg_size, 0);
-    	NETLINK_CB(skb_out).dst_group = 0; /*not in mcast group*/
+    	nlh = nlmsg_put(skb_out, 0, 1, NLMSG_DONE, msg_size, 0);
+	if (!nlh) {
+		pr_err("nlmsg_put() : No netlink message header\n");
+		return;
+	}
+
+    	//NETLINK_CB(skb_out).dst_group = MULTICAST_GROUP;
 	strncpy(nlmsg_data(nlh), msg, msg_size);
 
-    	res = nlmsg_unicast(nl_sk, skb_out, pid);
+    	res = netlink_broadcast(nl_sk, skb_out, pid, MULTICAST_GROUP, GFP_KERNEL);
 
     	if (res < 0)
         	printk(KERN_INFO "Error while sending back to user : %d\n", res);
