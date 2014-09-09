@@ -64,5 +64,6 @@ static void my_cgroup_exit (void)
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Ritesh Ranjan");
+MODULE_DESCRIPTION("A simple module to print the cgroups the task is attached to.");
 module_init(my_cgroup_init);
 module_exit(my_cgroup_exit);
