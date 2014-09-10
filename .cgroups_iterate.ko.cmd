@@ -1,0 +1,1 @@
+cmd_/root/PROGRAMMING/Kernel_Hacking/cgroups_iterate.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.15.0-eudyptula-custom-00205-g9a60ee1-dirty/scripts/module-common.lds --build-id  -o /root/PROGRAMMING/Kernel_Hacking/cgroups_iterate.ko /root/PROGRAMMING/Kernel_Hacking/cgroups_iterate.o /root/PROGRAMMING/Kernel_Hacking/cgroups_iterate.mod.o
