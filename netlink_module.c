@@ -18,19 +18,19 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
     	char *msg = "Hello from kernel";
     	int res;
 	
-    	printk(KERN_INFO "Entering: %s\n", __FUNCTION__);
+    	pr_info( "Entering: %s\n", __FUNCTION__);
 
     	msg_size = strlen(msg);
 
     	nlh = (struct nlmsghdr *)skb->data;
-    	printk(KERN_INFO "Netlink received msg payload: %s\n", (char *)nlmsg_data(nlh));
+    	pr_info( "Netlink received msg payload: %s\n", (char *)nlmsg_data(nlh));
     	pid = nlh->nlmsg_pid; /*pid of sending process*/
 	pr_info("Sending data back to task no. %d\n", pid);
 
     	skb_out = nlmsg_new(msg_size, 0);
 
     	if (!skb_out) {
-		printk(KERN_ERR "Failed to allocate new skb\n");
+		pr_info("Failed to allocate new skb\n");
         	return;
 
     	}
@@ -46,7 +46,7 @@ static void hello_nl_recv_msg(struct sk_buff *skb)
     	res = netlink_broadcast(nl_sk, skb_out, pid, MULTICAST_GROUP, GFP_KERNEL);
 
     	if (res < 0)
-        	printk(KERN_INFO "Error while sending back to user : %d\n", res);
+        	pr_info( "Error while sending back to user : %d\n", res);
 }
 
 struct netlink_kernel_cfg netlink_cfg = {
@@ -57,11 +57,11 @@ struct netlink_kernel_cfg netlink_cfg = {
 static int __init hello_init(void)
 {
 
-    	printk("Entering: %s\n", __FUNCTION__);
+    	pr_info("Entering: %s\n", __FUNCTION__);
 	nl_sk = netlink_kernel_create(&init_net, NETLINK_USER, &netlink_cfg);
     	if (!nl_sk) {
 
-       		printk(KERN_ALERT "Error creating socket.\n");
+       		pr_info( "Error creating socket.\n");
         	return -10;
 
     	}
@@ -72,7 +72,7 @@ static int __init hello_init(void)
 static void __exit hello_exit(void)
 {
 
-    	printk(KERN_INFO "exiting hello module\n");
+    	pr_info( "exiting hello module\n");
     	netlink_kernel_release(nl_sk);
 }
 
