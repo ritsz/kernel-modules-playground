@@ -74,7 +74,7 @@ static int __init init_simacc(void) {
 static void __exit cleanup_simacc(void)
 {
     	remove_proc_entry("simacc", NULL);
-    	printk(KERN_INFO "%s: Module Unloaded.\n", THIS_MODULE->name);
+    	pr_info("%s: Module Unloaded.\n", THIS_MODULE->name);
 }
 
 module_init(init_simacc);
