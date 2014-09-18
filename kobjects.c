@@ -20,7 +20,7 @@
  * later read out of it.
  */
 
-static int foo;
+static char foo[10];
 static int baz;
 static int bar;
 
@@ -30,13 +30,13 @@ static int bar;
 static ssize_t foo_show(struct kobject *kobj, struct kobj_attribute *attr,
                         char *buf)
 {
-        return sprintf(buf, "%d\n", foo);
+        return sprintf(buf, "%s\n", foo);
 }
 
 static ssize_t foo_store(struct kobject *kobj, struct kobj_attribute *attr,
                          const char *buf, size_t count)
 {
-        sscanf(buf, "%du", &foo);
+        sscanf(buf, "%s", &foo);
         return count;
 }
 
